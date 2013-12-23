@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+	<title>第一个简单的jQuery程序</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/jquery-1.10.2.js"></script>
+	<script>
+		$(document).ready(function(){
+			alert("您好，欢迎来到jQuery世界")
+		})
+	</script>
+</head>
+<body>
+	<h1>编写第一个简单的jQuery程序</h1>
+	<h2>功能描述</h2>
+	<p>在页面加载时，弹出一个模式对话框，显示“您好，欢迎来到jQuery世界”字样，单击“确定”按钮后关闭该窗口。</p>
+	<h2>实现代码</h2>
+	<p>实现该页弹窗效果使用的jQuery代码如下：</p>
+	<pre>
+$(document).ready(function(){
+	alert("")
+})</pre>
+	<h2>代码说明</h2>
+	<p>
+		该段代码类似于传统的JavaScript代码
+		<pre>
+window.onload=function(){}</pre>
+	</p>
+	<p>上述两段代码在功能上可以互换，但又多有区别：</p>
+	<ul>
+		<li>执行时间不同，<code>$(documnet).ready</code>在页面框架下载完毕后就执行；而<code>window.onload</code>必须在页面全部加在完毕（包含图片下载）后才能执行。很明显，前者的执行效率高于后者。</li>
+		<li>执行数量不同：<code>$(document).ready</code>可以重复写多个，并且每次执行结果不同；而window.onload尽管可以执行多个，但仅输出最后一个执行结果，无法完成多个结果的输出。</li>
+		<li><code>$(document).ready(function(){})</code>可以简写成<code>$(function(){})</code>，因此下面两个程序段是等价的。
+			<pre>
+$(document).ready(function(){
+
+})</pre>
+			等价于
+			<pre>
+$(function(){
+
+})</pre>
+		</li>
+	</ul>
+</body>
+</html>
