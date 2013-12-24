@@ -1,0 +1,48 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		.clsFrame {
+			width: 300px;
+			height: 100px;
+		}
+		.clsFrame div, span {
+			display: none;
+			float: left;
+			width: 65px;
+			height: 65px;
+			border: solid 1px #ccc;
+			margin: 8px;
+		}
+		.clsOne {
+			background-color: #eee;
+		}
+	</style>
+	<script>
+	$(function(){
+		$("body *").css("display", "block");
+		// 匹配所有元素
+	})
+	</script>
+</head>
+<body>
+	<h1>jQuery基本选择器——匹配所有元素</h1>
+	<h2>功能描述</h2>
+	<p>
+		页面中存在两个<code>&ltdiv&gt</code>标记，其中一个用于设置ID属性，另一个用于设置Class属性；然后再添加了一个<code>&ltspan&gt</code>标记，全部元素初始值均为隐藏，然后通过jQuery基本选择器的星号选择器显示所有元素。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  $("#body *").css("display", "block");
+  // 匹配所有元素
+})</pre>
+	<h2>代码示例</h2>
+	<div class="clsFrame">
+		<div id="divOne">ID</div>
+		<div class="clsOne">CLASS</div>
+		<span>SPAN</span>
+	</div>
+</body>
+</html>

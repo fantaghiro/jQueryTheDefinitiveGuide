@@ -1,0 +1,42 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		div, span {
+			float: left;
+			border: solid 1px #ccc;
+			margin: 8px;
+			width: 65px;
+			height: 65px;
+		}
+		.GetFocus {
+			border: solid 1px #666;
+			background-color: #eee;
+		}
+	</style>
+	<script>
+		$(function(){
+			$("span:hidden").show().addClass("GetFocus");
+			// 增加所有可见元素类别
+		})
+	</script>
+</head>
+<body>
+	<h1>jQuery选择器——可见性过滤选择器——获取所有不可见元素，或者type为hidden的元素</h1>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，创建一个<code>&ltspan&gt</code>标记和<code>&ltdiv&gt</code>标记，分别设置标记的display属性为“none”和“block”；然后根据可见性过滤选择器显示页面元素。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  $("span:hidden").show().addClass("GetFocus")
+  // 增加所有可见元素类别
+})		
+	</pre>
+	<h2>代码示例</h2>
+	<span style="display: none">Hidden</span>
+	<div>Visible</div>
+</body>
+</html>
