@@ -14,6 +14,9 @@
 			border: solid 1px #666;
 			background-color: #eee;
 		}
+		h2 {
+			clear: left;
+		}
 	</style>
 	<script>
 		$(function(){
@@ -38,5 +41,9 @@ $(function(){
 	<h2>代码示例</h2>
 	<span style="display: none">Hidden</span>
 	<div>Visible</div>
+	<h2>代码说明</h2>
+	<p>
+		<code>:hidden</code>选择器所选择的不仅包括样式为<code>display: none</code>的所有元素，而且还包括<code>type="hidden"</code>和样式为<code>visibility: hidden</code>的所有元素。
+	</p>
 </body>
 </html>

@@ -1,0 +1,43 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		div {
+			float: left;
+			border: solid 1px #ccc;
+			margin: 8px;
+			width: 65px;
+			height: 65px;
+			display: none;
+		}
+		h2 {
+			clear: left;
+		}
+	</style>
+	<script>
+		$(function(){
+			$("div[id='divAB'][title*='B']").show(3000);
+			// 显示所有属性title的值中含有“B”且属性id的值是“divAB”的元素
+		})
+	</script>
+</head>
+<body>
+	<h1>jQuery选择器——属性过滤选择器——获取满足多个条件的复合属性的元素</h1>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，增加四个<code>&ltdiv&gt</code>标记，并设置不同的ID和Title属性值，然后通过属性过滤选择器获取所指定的元素集合，并显示在页面中。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  $("div[id='divAB'][title*='B']").show(3000);
+  // 显示所有属性title的值中含有“B”且属性id的值是“divAB”的元素
+})</pre>
+	<h2>代码示例</h2>
+	<div id="divID">ID</div>
+	<div title="A">Title A</div>
+	<div id="divAB" title="AB">ID <br />Title AB</div>
+	<div title="ABC">Title ABC</div>
+</body>
+</html>
