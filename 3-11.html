@@ -1,0 +1,36 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<script>
+		$(function(){
+			$("div").append(retHtml);
+			// 插入内容
+			function retHtml(){
+				var str=" <b>Write Less Do More</b>";
+				return str;
+			}
+		})
+	</script>
+</head>
+<body>
+	<h1>插入节点——内部插入节点方法——append(function(index,html))</h1>
+	<p>该方法是版本1.4中新增的，其功能是将一个function函数作为append方法的参数，该函数的功能必须返回一个字符串，作为append方法插入的内容，其中index参数为对象在这个集合中的索引值，html参数为该对象原有的html值。</p>
+	<h2>功能说明</h2>
+	<p>
+		在页面中，通过一个function函数返回一段字符串，并将该字符串插入指定的div标记元素内容中。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  $("div").append(retHtml);
+  // 插入内容
+  function retHtml(){
+    var str=" <b>Write Less Do More</b>";
+    return str;
+  }
+})</pre>
+	<h2>代码示例</h2>
+	<div>jQuery</div>
+</body>
+</html>

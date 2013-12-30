@@ -1,0 +1,49 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		div {
+			border: solid 1px #666;
+			padding: 5px;
+			width: 220px;
+			margin: 5px;
+		}
+	</style>
+	<script>
+	$(function(){
+		var strHTML = $("#divShow").html();
+		//获取HTML内容
+		var strText = $("#divShow").text();
+		// 获取文本内容
+		$("#divHTML").html(strHTML);
+		// 设置HTML内容
+		$("#divText").text(strText);
+		// 设置文本内容
+	})
+	</script>
+</head>
+<body>
+	<h1>设置或获取元素的内容 </h1>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，用<code>html()</code>和<code>text()</code>方法获取div标记中的内容，并将内容分别作为<code>html(val)</code>和<code>text(val)</code>的参数，分别设置元素的内容，并将结果显示在 页面中。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  var strHTML = $("#divShow").html();
+  //获取HTML内容
+  var strText = $("#divShow").text();
+  // 获取文本内容
+  $("#divHTML").html(strHTML);
+  // 设置HTML内容
+  $("#divText").text(strText);
+  // 设置文本内容
+})</pre>
+	<h2>代码示例</h2>
+	<div id="divShow"><b><i>Wirte Less Do More</i></b></div>
+	<div id="divHTML"></div>
+	<div id="divText"></div>
+</body>
+</html>

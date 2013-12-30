@@ -1,0 +1,99 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		h2 {
+			clear: left;
+		}
+		div {
+			padding: 3px;
+			margin: 3px;
+			width: 120px;
+			float: left;
+		}
+		.txt {
+			border: #666 1px solid;
+			padding: 3px;
+		}
+	</style>
+	<script>
+		$(function(){
+			$("select").change(function(){
+			// 设置列表框change事件
+				var strSel = $("select").val().join(".");
+				$("#p1").html(strSel);
+				// 显示列表框中选中的全部选项的值
+			})
+			$("input").change(function(){
+			// 设置文本框的change事件
+				var strTxt = $("input").val();
+				// 获取文本框的值
+				$("#p2").html(strTxt);
+				// 显示文本框所输入的值
+			})
+			$("input").focus(function(){
+			// 设置文本框focus事件
+				$("input").val("");
+				// 清空文本框的值
+			})
+		})
+	</script>
+</head>
+<body>
+	<h1>获取或设置元素值</h1>
+	<p>
+		在jQuery中，如果要获取元素的值，是通过val()方法实现的，其语法格式如下所示：<code>val(val)</code>。其中，如果不带参数val，则是获取某元素的值；反之，则是将参数val的值赋给某元素，即设置元素的值。该方法常用于表单中获取或设置对象的值。
+	</p>
+	<p>另外，通过val()方法还可以获取select标记中的多个选项值，其语法格式如下所示：<code>val().join(".")</code></p>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，创建一个可以多选的select标记，设置该标记的change事件，当按Ctrl键选择多项时，通过p标记将获取的选项值显示在页面中；另外，创建一个文本框元素，设置该文本框的change和focus事件，当文本框获得焦点时，清空文本框中的内容；当在文本框输入字符时，通过另外一个p标记将所获取的文本的值即时显示在页面中。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  $("select").change(function(){
+  // 设置列表框change事件
+    var strSel = $("select").val().join(".");
+    $("#p1").html(strSel);
+    // 显示列表框中选中的全部选项的值
+  })
+  $("input").change(function(){
+  // 设置文本框的change事件
+    var strTxt = $("input").val();
+    // 获取文本框的值
+    $("#p2").html(strTxt);
+    // 显示文本框所输入的值
+  })
+  $("input").focus(function(){
+  // 设置文本框focus事件
+    $("input").val("");
+    // 清空文本框的值
+  })
+})</pre>
+	<h2>代码示例</h2>
+	<div>
+		<select multiple="multiple" style="height: 96px; width: 85px">
+			<option value="1">Item 1</option>
+			<option value="2">Item 2</option>
+			<option value="3">Item 3</option>
+			<option value="4">Item 4</option>
+			<option value="5">Item 5</option>
+			<option value="6">Item 6</option>
+		</select>
+		<p id="p1"></p>
+	</div>
+	<div>
+		<input type="text" class="txt">
+		<p id="p2"></p>
+	</div>
+	<h2>代码说明</h2>
+	<p>
+		本实现代码中用到了<code>join(".")</code>，表示获取到多个值用“.”连接起来。
+	</p>
+	<p>
+		在val(val)方法中，如果有参数，其参数还可以是数组的形式，即val(array)，其作用是设置元素被选中。因此<code>$(":radio").val(["radio2","radio3"])</code>此句代码的意思为：ID号为radio2和radio3的单选框被选中。
+	</p>
+</body>
+</html>
