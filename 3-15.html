@@ -1,0 +1,46 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		span {
+			font-size: 13px;
+		}
+	</style>
+	<script>
+		$(function(){
+			$("#span1").replaceWith("<span title='replaceWith'>陶国荣</span>");
+			$("<span title='replaceAll'>tao_guo_rong@163.com</span>").replaceAll("#span2");
+			$("p:eq(2), p:eq(3)").css({
+				"background-color": "#eee",
+				"padding": "5px",
+				"width": "200px",
+				"font-size": "13px"
+			});
+		})
+	</script>
+</head>
+<body>
+	<h1>替换节点</h1>
+	<p>
+		在jQuery中，如果要替换元素中的节点，可以使用replaceWith()和replaceAll()这两种方法，其语法格式分别如下。<code>replaceWith(content)</code>：该方法的功能是将所有选择的元素替换成指定的HTML或DOM元素，其中参数content为被所选择元素替换的内容。<code>replaceAll(selector)</code>：该方法的功能是将所有选择的元素替换成指定selector的元素，其中参数selector为需要被替换的元素。
+	</p>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，创建两个span标记，id号分别为span1和span2，然后，通过jQuery中的两种替换元素的方法，分别替换元素span1和span2。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  $("#span1").replaceWith("&ltspan title='replaceWith'&gt陶国荣&lt/span&gt");
+  $("&ltspan title='replaceAll'&gttao_guo_rong@163.com&lt/span&gt").replaceAll("#span2");
+})</pre>
+	<h2>代码示例</h2>
+	<p>姓名：<span id="span1"></span></p>
+	<p>邮箱：<span id="span2"></span></p>
+	<h2>代码说明</h2>
+	<p>
+		注意：replaceWith()与replaceAll()方法都可以实现元素节点的替换，二者最大的区别在于替换字符的顺序，前者是用括号中的字符替换所选择的元素，后者是用字符串替换括号中所选择的元素。同时，一旦完成替换，被替换元素中的全部事件都将消失。
+	</p>
+</body>
+</html>

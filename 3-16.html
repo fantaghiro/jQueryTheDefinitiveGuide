@@ -1,0 +1,39 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<script>
+		$(function(){
+			$("p:eq(2),p:eq(3)").wrap("<b></b>");
+			// 所有段落标记字体加粗
+			$("span").wrapInner("<i></i>");
+			// 所有段落中的span标记斜体
+		})
+	</script>
+</head>
+<body>
+	<h1>包裹节点</h1>
+	<p>
+		在jQuery中，不仅可以通过方法替换元素节点，还可以根据需求包裹某个指定的节点，对节点的包裹也是DOM对象操作中很重要的一项。其中wrap(html)与wrapInner(html)方法较为常用。前者包裹外部元素，后者包裹元素内部的文本字符。
+	</p>
+	<h2>功能描述</h2>
+	<p>
+		在页面中放置两个段落p标记，并在该标记内分别设置两个span标记，通过wrap()与wrapInner()两种方法，改变标记中的外部元素与内部文本的字体显示方式。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  $("p:eq(2),p:eq(3)").wrap("&ltb&gt&lt/b&gt");
+  // 段落标记字体加粗
+  $("span").wrapInner("&lti&gt&lt/i&gt");
+  // 段落中的span标记斜体
+})</pre>
+	<h2>代码示例</h2>
+	<p>最喜爱的体育运动：<span>羽毛球</span></p>
+	<p>最爱看的哪类型图书：<span>网络、技术</span></p>
+	<h2>代码说明</h2>
+	<p>
+		在上述示例中，<code>&ltb&gt&lt/b&gt</code>包裹在了<code>&ltp&gt&lt/p&gt</code>的外面；而<code>&lti&gt&lt/i&gt</code>在<code>&ltspan&gt&lt/span&gt</code>里面进行包裹。
+	</p>
+</body>
+</html>

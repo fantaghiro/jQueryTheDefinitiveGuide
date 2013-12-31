@@ -13,6 +13,12 @@
 			border: solid 1px #ccc;
 			padding: 3px;
 			margin: 5px;
+			width: 100px;
+			height: 100px;
+		}
+		span {
+			display: inline-block;
+			border: solid 1px #ededed;
 		}
 	</style>
 </head>
@@ -25,8 +31,10 @@
 	</p>
 	<h2>实现代码</h2>
 	<pre>
-
-	</pre>
+$(function(){
+  $("img").appendTo($("span"));
+  // 插入内容
+})</pre>
 	<h2>代码示例</h2>
 	<img src="http://blog.codepen.io/wp-content/uploads/2012/06/Button-Fill-Black-Large.png" alt="" title="2008年新书封面">
 	<span><img src="http://blog.codepen.io/wp-content/uploads/2012/06/Black-Large.png" alt="" title="2010年新书封面"></span>
