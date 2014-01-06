@@ -23,8 +23,12 @@
 	</p>
 	<h2>实现代码</h2>
 	<pre>
-		
-	</pre>
+$(function(){
+  $("img").each(function(index){
+  // 根据形参index设置元素的title属性
+  this.title="第 "+index+" 幅风景图片，alt内容是 "+this.alt;
+  })
+})</pre>
 	<h2>代码示例</h2>
 	<p>
 		<img src="http://books.sflep.com/media/catalog/product/cache/1/image/160x/8a02aedcaf38ad3a98187ab0a1dede95/f/i/file_113_18.jpg" alt="第0幅封面" />
