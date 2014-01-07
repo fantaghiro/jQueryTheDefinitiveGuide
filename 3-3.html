@@ -1,0 +1,64 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<title>设置元素的属性</title>
+	<style>
+	.clsSpan {
+		float: left;
+		padding-top: 10px;
+		padding-left: 10px;
+	}
+	.clsImg {
+		border: solid 1px #ccc;
+		padding: 3px;
+		float: left;
+	}
+	h2 {
+		clear: left;
+	}
+	</style>
+	<script>
+		$(function(){
+  $("img").attr("src", "http://davidwalsh.name/demo/codepenLogo.png");
+  // 设置src属性
+  $("img").attr("title", "这是Codepen的Logo");
+  // 设置title属性
+  $("img").attr({src: "http://davidwalsh.name/demo/codepenLogo.png", title: "这是Codepen的Logo的Logo"});
+  // 同时设置两个属性
+  $("img").addClass("clsImg");
+  // 增加样式
+  $("span").html("加载完毕");
+  // 显示加载状态
+})
+	</script>
+</head>
+<body>
+	<h1>设置元素的属性（一）</h1>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，创建一个<code>&ltimg&gt</code>标记，通过jQuery中的attr()方法，在页面加载时，设置该标记的img和title属性值，并显示在页面中。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  $("img").attr("src", "http://davidwalsh.name/demo/codepenLogo.png");
+  // 设置src属性
+  $("img").attr("title", "这是Codepen的Logo");
+  // 设置title属性
+  $("img").attr({src: "http://davidwalsh.name/demo/codepenLogo.png", title: "这是Codepen的Logo的Logo"});
+  // 同时设置两个属性
+  $("img").addClass("clsImg");
+  // 增加样式
+  $("span").html("加载完毕");
+  // 显示加载状态
+})</pre>
+	<h2>代码示例</h2>
+	<img src="https://cdn4.iconfinder.com/data/icons/pictype-free-vector-icons/16/spinner-64.png" alt="" style="float: left">	
+	<span class="clsSpn">正在加载图片…</span>
+	<h2>代码说明</h2>
+	<p>
+		在页面中，attr()方法不仅可以获取元素的属性值，还可以设置元素的属性，其设置属性语法格式如下表示：<code>attr(key, value)</code>。其中，参数key表示属性的名称，value表示属性的值。如果要设置多个属性，也可以通过attr()方法实现，其语法格式如下所示：<code>attr({key0: value0, key1: value1})</code>。
+	</p>
+</body>	
+</html>
