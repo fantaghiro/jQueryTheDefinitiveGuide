@@ -1,0 +1,27 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<h1>绑定事件</h1>
+	<p>在示例中，多数使用如下方式绑定按钮的单击事件：<br>
+		<pre>
+$(function(){
+  $("#btnShow").click(function(){
+  //执行代码
+  })
+})</pre>
+	</p>
+	<p>除了上述绑定事件的写法外，在jQuery中，还可以使用<code>bind()</code>方法进行事件的绑定。下面对该方法进行详细的介绍。</p>
+	<p>bind()功能是为每个选择元素的事件绑定处理函数，其语法格式如下：<br>
+		<pre>
+bind(type, [data], fn)</pre>
+	</p>
+	<ul>
+		<li>其中参数type为一个或多个类型的字符串，如“click”或“change“，也可以自定义类型；可以被参数type调用的类型包括：blur、focus、load、resize、scroll、unload、click、dblclick、mousedown、mouseup、mousemove、mouseover、mouseout、mouseenter、mouseleave、change、select、submit、keydown、keypress、keyup、error。</li>
+		<li>参数data是作为event.data属性值传递给事件对象的额外数据对象。</li>
+		<li>参数fn是绑定到每个选择元素的事件中的处理函数。</li>
+	</ul>
+</body>
+</html>

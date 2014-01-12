@@ -1,0 +1,52 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		.btn {
+			border: #666 1px solid;
+			padding: 2px;
+			width: 50px;
+			filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff,EndColorStr=#ECE9D8);
+		}
+	</style>
+	<script>
+		$(function(){
+			$("#btnBind").bind("click", function(){
+				$(this).attr("disabled", "disabled");
+				// 按钮不可用
+			})
+		})
+	</script>
+</head>
+<body>
+	<h1>用bind方法绑定事件</h1>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，设置一个按钮，通过bind方法给按钮绑定一个click事件，在该事件中，将自身的是否可用属性设置成false，即单击按钮后就不可使用。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  $("btnBind").bind("click", function(){
+    $(this).attr("disabled", "disabled");
+    // 按钮不可用
+  })
+})</pre>
+	<h2>代码示例</h2>
+	<input type="button" value="Button" id="btnBind" class="btn">
+	<h2>代码说明</h2>
+	<p>
+		如果要在一个元素中绑定多个事件，可以将事件用空格隔开，如上例所示，除单击事件外，如果需要加一个mouseout事件，则可以将代码修改为如下所示：
+	</p>
+	<pre>
+... 省略头部代码
+$(function(){
+  $("#btnBind").bind("click mouseout", function(){
+  $(this).attr("disabled", "disabled");
+  //按钮不可用
+  })
+})
+... 省略主体代码</pre>
+</body>
+</html>
