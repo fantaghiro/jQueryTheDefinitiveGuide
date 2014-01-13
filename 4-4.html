@@ -1,0 +1,83 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		.clsFrame {
+			border: solid 1px #666;
+			width: 220px;
+		}
+		.clsFrame .clsTitle {
+			background-color: #eee;
+			padding: 5px;
+			font-weight: bold;
+		}
+		.clsFrame .clsContent {
+			padding: 5px;
+			display: none;
+		}
+	</style>
+	<script>
+		$(function(){
+			$(".clsTitle").hover(function(){
+				$(".clsContent").show();
+			}, function(){
+				$(".clsContent").hide();
+			})
+		})
+	</script>
+</head>
+<body>
+	<h1>切换事件——hover()方法</h1>
+	<p>
+		在jQuery中，有两个方法用于事件的切换，一个是hover()，另一个方法是toggle()。
+	</p>
+	<p>
+		调用jQuery中的hover()方法可以使元素在鼠标悬停与鼠标移出的事件中进行切换，该方法在实现运用中，也可以通过jQuery中的事件mouseenter与mouseleave进行替换。下列代码是等价的。
+	</p>
+	<ul>
+		<li>代码一：
+			<pre>
+$("a").hover(function(){
+  //执行代码一
+  }, function(){
+  //执行代码二
+})</pre>
+		</li>
+		<li>代码二：
+			<pre>
+$("a").mouseenter(function(){
+  //执行代码一
+})
+$("a").mouseleave(function(){
+  //执行代码二
+})</pre>
+		</li>
+	</ul>
+	<p>
+		hover()功能是当鼠标移动到所选的元素上面时，执行指定的第一个函数；当鼠标移出这个元素时，执行指定的第二个函数，其语法格式如下：<code>hover(over, out)</code>。参数over为鼠标移到元素时触发的函数，参数out为鼠标移出元素时触发的函数。
+	</p>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，创建一个&ltdiv&gt标记，在该标记中，设置另外两个&ltdiv&gt元素，一个用于显示标题，另一个则用于显示内容，调用jQuery中的hover()方法，将鼠标移到标题时，自动显示内容；鼠标移出标题时，关闭显示的内容。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  $(".clsTitle").hover(function(){
+    $(".clsContent").show();
+  }, function(){
+    $(".clsContent").hide();
+  })
+})</pre>
+	<h2>代码示例</h2>
+	<div class="clsFrame">
+		<div class="clsTitle">jQuery简介</div>
+		<div class="clsContent">&nbsp;&nbsp;jQuery是由美国人John Resig于2006年创建的一个开源项目，它的主旨是：以更少的代码，实现更多的功能（Write less, do more）。</div>
+	</div>
+	<h2>代码说明</h2>
+	<p>
+		此处的hover不一定像CSS里面那样只能用于链接&lta&gt&lt/a&gt，像在此例中&ltdiv&gt也同样适用。
+	</p>
+</body>
+</html>
