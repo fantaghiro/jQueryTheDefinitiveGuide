@@ -1,0 +1,66 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		.txt {
+			border: #666 1px solid;
+			padding: 3px;
+		}
+	</style>
+	<script>
+		$(function(){
+			var oTxt=$("input");
+			//获取文本框
+			oTxt.trigger("select");
+			// 自动选中文本框
+			oTxt.bind("btn_Click", function(){
+			// 编写文本框自定义事件
+				var txt=$(this).val();
+				// 获取自身内容
+				$("#divTip").html(txt);
+				// 显示在页面中	
+			})
+			oTxt.trigger("btn_Click");
+			// 自动触发自定义事件
+		})
+	</script>
+</head>
+<body>
+	<h1>其他事件——方法trigger()绑定事件</h1>
+	<p>
+		在前端页面开发中，有时希望页面在DOM加载完毕后，自动执行一些很人性化的操作，如：文本框中的内容处于全部被选中状态，某个按钮处于焦点中。利用传统的JavaScript语言需要编写复杂的代码才可以实现上述功能；而在jQuery中，仅需要调用一个trigger()方法就可以轻松实现。
+	</p>
+	<p>
+		trigger()方法的功能是在所选择的元素上触发指定类型的事件。其调用的语法格式为：<code>trigger(type, [data])</code>。其中参数type为触发事件的类型，参数data为可选项，表示在触发事件时，传递给函数的附加参数。
+	</p>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，创建一个文本框，并给文本框设置一个默认值，当该页面加载时，自动获取文本框中的值，显示在页面中，同时，文本框处于选中状态。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  var oTxt=$("input");
+  //获取文本框
+  oTxt.trigger("select");
+  // 自动选中文本框
+  oTxt.bind("btn_Click", function(){
+  // 编写文本框自定义事件
+    var txt=$(this).val();
+    // 获取自身内容
+    $("#divTip").html(txt);
+    // 显示在页面中	
+  })
+  oTxt.trigger("btn_Click");
+  // 自动触发自定义事件
+})</pre>
+	<h2>代码示例</h2>
+	姓名：<input type="text" id="Text1" class="txt" value="陶国荣">
+	<div id="divTip" stype="padding-top: 5px;"></div>
+	<h2>代码说明</h2>
+	<p>
+		trigger()方法可以实现触发性事件，即不必用户做任何动作，自动执行该方法中的事件。在这种情形下，其最终效果可能会有异样发生。如果不希望页面自动执行，可使用triggerHandler()方法，使用方法与trigger()方法基本相同，只是该方法不会自动执行其包含的事件。
+	</p>
+</body>
+</html>

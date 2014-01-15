@@ -1,0 +1,173 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<meta charset="GB2312"/>
+	<style>		
+		/*元素初始状态样式*/
+		.divInit {
+			width: 410px;
+			height: 55px;
+			line-height: 55px;
+			padding-left: 20px;
+		}
+		.txtInit {
+			border: #666 1px solid;
+			padding: 3px;
+			background-color: lightgray;
+		}
+		.spnInit {
+			width: 179px;
+			height: 40px;
+			line-height: 40px;
+			float: right;
+			margin-top: 8px;
+			padding-left: 10px;
+			background-repeat: no-repeat;
+		}
+		
+		/*元素丢失焦点样式*/
+		.divBlur {
+			background-color: #FEEEC2;
+		}
+		.txtBlur {
+			border: #666 1px solid;
+			padding: 3px;
+			background-color: red;
+		}
+		.spnBlur {
+			background-color: orange;
+		}
+
+		.divFocu {
+			background-color: #EDFFD5; /* div获取焦点样式 */
+		}
+		.spnSucc {
+			background-image: url(http://www.haotu.net/up/2356/16/check.png);
+			margin-top: 20px;
+		}
+	</style>
+	<script>
+		$(function(){
+			$("#txtEmail").trigger("focus");
+			// 默认时文本框获取焦点
+			$("#txtEmail").focus(function(){
+			// 文本框获取焦点事件
+				$(this).removeClass("txtBlur").addClass("txtInit");
+				$("#email").removeClass("divBlur").addClass("divFocu");
+				$("#spnTip").removeClass("spnBlur").removeClass("spnSucc").html("请输入您常用邮箱地址！");
+			})
+
+			$("#txtEmail").blur(function(){
+			// 文本框丢失焦点事件
+				var vtxt=$("#txtEmail").val();
+				if(vtxt.length==0){
+					$(this).removeClass("txtInit").addClass("txtBlur");
+					$("#email").removeClass("divFocu").addClass("divBlur");
+					$("#spnTip").addClass("spnBlur").html("邮箱地址不能为空！");
+				}
+				else {
+					if (!chkEmail(vtxt)){
+					// 检测邮箱格式是否正确
+						$(this).removeClass("txtInit")
+						.addClass("txtBlur");
+						$("#email").removeClass("divFocu")
+						.addClass("divBlur");
+						$("#spnTip").addClass("spnBlur")
+						.html("邮箱格式不正确!");	
+					}	
+					else { //如果正确
+						$(this).removeClass("txtBlur").addClass("txtInit");
+						$("email").removeClass("divFocu");
+						$("#spnTip").removeClass("spnBlur").addClass("spnSucc").html("");
+					}
+				}
+			})
+
+			// 验证邮箱格式是否正确
+			// 参数strEmail，需要验证的邮箱
+			function chkEmail(strEmail){
+				if (!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
+					.test(strEmail)){
+						return false;
+					}
+					else {
+						return true;
+					}
+			}
+		})
+	</script>
+</head>
+<body>
+	<h1>表单应用——文本框中的事件应用</h1>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，创建一个用于输入邮箱地址的文本框，使用jQuery与CSS结合，当用文本框获取时，样式发生变化，同时提示用户输入邮箱的方法。
+	</p>
+	<p>
+		当用户在文本框中输入邮箱后，丢失焦点时，将检测其内容是否为空，如果不为空或邮箱格式不符，样式将再次发生变化，同时提示出错信息；如果输入正确，样式返回初始状态，并显示一个打勾的图片。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  $("#txtEmail").trigger("focus");
+  // 默认时文本框获取焦点
+  $("#txtEmail").focus(function(){
+  // 文本框获取焦点事件
+    $(this).removeClass("txtBlur").addClass("txtInit");
+    $("#email").removeClass("divBlur").addClass("divFocu");
+    $("#spnTip").removeClass("spnBlur").removeClass("spnSucc").html("请输入您常用邮箱地址！");
+  })
+
+  $("#txtEmail").blur(function(){
+  // 文本框丢失焦点事件
+    var vtxt=$("#txtEmail").val();
+    if(vtxt.length==0){
+      $(this).removeClass("txtInit").addClass("txtBlur");
+      $("#email").removeClass("divFocu").addClass("divBlur");
+      $("#spnTip").addClass("spnBlur").html("邮箱地址不能为空！");
+    }
+    else {
+      if (!chkEmail(vtxt)){
+      // 检测邮箱格式是否正确
+        $(this).removeClass("txtInit")
+        .addClass("txtBlur");
+        $("#email").removeClass("divFocu")
+        .addClass("divBlur");
+        $("#spnTip").addClass("spnBlur")
+        .html("邮箱格式不正确!");	
+      }	
+      else { //如果正确
+        $(this).removeClass("txtBlur").addClass("txtInit");
+        $("email").removeClass("divFocu");
+        $("#spnTip").removeClass("spnBlur").addClass("spnSucc").html("");
+      }
+    }
+  })
+
+  // 验证邮箱格式是否正确
+  // 参数strEmail，需要验证的邮箱
+  function chkEmail(strEmail){
+    if (!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(strEmail)){
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
+})</pre>
+	<h2>代码示例</h2>
+	<form action="#" id="form1">
+		<div id="email" class="divInit">邮箱：
+			<span id="spnTip" class="spnInit"></span>
+			<input type="text" class="txtInit" id="txtEmail"></div>
+	</form>
+	<h2>代码说明</h2>
+	<p>
+		文本框的blur丢失焦点事件，其代码与focus事件有相似之处，都是先清理原先加载过的页面样式，然后增加本身事件中的样式。不同之处在于，在文本框的blur事件中，还要进行文本框内容是否为空和邮箱格式是否符合的检测操作。如果不为空，再进行检测。chkEmail()中那一串是用来验证Email是否输入正确的正则表达式。
+	</p>
+	<p>
+		在jQuery中，addClass()方法的功能是增加某种CSS样式，为了更好地体现设置的样式，在增加新的CSS样式前，应先通过removeClass()方法，删除已加载过的页面样式，以达到预期的页面效果。
+	</p>
+</body>
+</html>
