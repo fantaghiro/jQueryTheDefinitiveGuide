@@ -2,9 +2,8 @@
 <head>
 	<script src="js/jquery-1.10.2.js"></script>
 	<link rel="stylesheet" href="css/style.css">
-	<meta charset="GB2312"/>
 	<style>		
-		/*ÔªËØ³õÊ¼×´Ì¬ÑùÊ½*/
+		/*å…ƒç´ åˆå§‹çŠ¶æ€æ ·å¼*/
 		.divInit {
 			width: 410px;
 			height: 55px;
@@ -26,7 +25,7 @@
 			background-repeat: no-repeat;
 		}
 		
-		/*ÔªËØ¶ªÊ§½¹µãÑùÊ½*/
+		/*å…ƒç´ ä¸¢å¤±ç„¦ç‚¹æ ·å¼*/
 		.divBlur {
 			background-color: #FEEEC2;
 		}
@@ -40,7 +39,7 @@
 		}
 
 		.divFocu {
-			background-color: #EDFFD5; /* div»ñÈ¡½¹µãÑùÊ½ */
+			background-color: #EDFFD5; /* divè·å–ç„¦ç‚¹æ ·å¼ */
 		}
 		.spnSucc {
 			background-image: url(http://www.haotu.net/up/2356/16/check.png);
@@ -50,33 +49,33 @@
 	<script>
 		$(function(){
 			$("#txtEmail").trigger("focus");
-			// Ä¬ÈÏÊ±ÎÄ±¾¿ò»ñÈ¡½¹µã
+			// é»˜è®¤æ—¶æ–‡æœ¬æ¡†è·å–ç„¦ç‚¹
 			$("#txtEmail").focus(function(){
-			// ÎÄ±¾¿ò»ñÈ¡½¹µãÊÂ¼ş
+			// æ–‡æœ¬æ¡†è·å–ç„¦ç‚¹äº‹ä»¶
 				$(this).removeClass("txtBlur").addClass("txtInit");
 				$("#email").removeClass("divBlur").addClass("divFocu");
-				$("#spnTip").removeClass("spnBlur").removeClass("spnSucc").html("ÇëÊäÈëÄú³£ÓÃÓÊÏäµØÖ·£¡");
+				$("#spnTip").removeClass("spnBlur").removeClass("spnSucc").html("è¯·è¾“å…¥æ‚¨å¸¸ç”¨é‚®ç®±åœ°å€ï¼");
 			})
 
 			$("#txtEmail").blur(function(){
-			// ÎÄ±¾¿ò¶ªÊ§½¹µãÊÂ¼ş
+			// æ–‡æœ¬æ¡†ä¸¢å¤±ç„¦ç‚¹äº‹ä»¶
 				var vtxt=$("#txtEmail").val();
 				if(vtxt.length==0){
 					$(this).removeClass("txtInit").addClass("txtBlur");
 					$("#email").removeClass("divFocu").addClass("divBlur");
-					$("#spnTip").addClass("spnBlur").html("ÓÊÏäµØÖ·²»ÄÜÎª¿Õ£¡");
+					$("#spnTip").addClass("spnBlur").html("é‚®ç®±åœ°å€ä¸èƒ½ä¸ºç©ºï¼");
 				}
 				else {
 					if (!chkEmail(vtxt)){
-					// ¼ì²âÓÊÏä¸ñÊ½ÊÇ·ñÕıÈ·
+					// æ£€æµ‹é‚®ç®±æ ¼å¼æ˜¯å¦æ­£ç¡®
 						$(this).removeClass("txtInit")
 						.addClass("txtBlur");
 						$("#email").removeClass("divFocu")
 						.addClass("divBlur");
 						$("#spnTip").addClass("spnBlur")
-						.html("ÓÊÏä¸ñÊ½²»ÕıÈ·!");	
+						.html("é‚®ç®±æ ¼å¼ä¸æ­£ç¡®!");	
 					}	
-					else { //Èç¹ûÕıÈ·
+					else { //å¦‚æœæ­£ç¡®
 						$(this).removeClass("txtBlur").addClass("txtInit");
 						$("email").removeClass("divFocu");
 						$("#spnTip").removeClass("spnBlur").addClass("spnSucc").html("");
@@ -84,8 +83,8 @@
 				}
 			})
 
-			// ÑéÖ¤ÓÊÏä¸ñÊ½ÊÇ·ñÕıÈ·
-			// ²ÎÊıstrEmail£¬ĞèÒªÑéÖ¤µÄÓÊÏä
+			// éªŒè¯é‚®ç®±æ ¼å¼æ˜¯å¦æ­£ç¡®
+			// å‚æ•°strEmailï¼Œéœ€è¦éªŒè¯çš„é‚®ç®±
 			function chkEmail(strEmail){
 				if (!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
 					.test(strEmail)){
@@ -99,45 +98,45 @@
 	</script>
 </head>
 <body>
-	<h1>±íµ¥Ó¦ÓÃ¡ª¡ªÎÄ±¾¿òÖĞµÄÊÂ¼şÓ¦ÓÃ</h1>
-	<h2>¹¦ÄÜÃèÊö</h2>
+	<h1>è¡¨å•åº”ç”¨â€”â€”æ–‡æœ¬æ¡†ä¸­çš„äº‹ä»¶åº”ç”¨</h1>
+	<h2>åŠŸèƒ½æè¿°</h2>
 	<p>
-		ÔÚÒ³ÃæÖĞ£¬´´½¨Ò»¸öÓÃÓÚÊäÈëÓÊÏäµØÖ·µÄÎÄ±¾¿ò£¬Ê¹ÓÃjQueryÓëCSS½áºÏ£¬µ±ÓÃÎÄ±¾¿ò»ñÈ¡Ê±£¬ÑùÊ½·¢Éú±ä»¯£¬Í¬Ê±ÌáÊ¾ÓÃ»§ÊäÈëÓÊÏäµÄ·½·¨¡£
+		åœ¨é¡µé¢ä¸­ï¼Œåˆ›å»ºä¸€ä¸ªç”¨äºè¾“å…¥é‚®ç®±åœ°å€çš„æ–‡æœ¬æ¡†ï¼Œä½¿ç”¨jQueryä¸CSSç»“åˆï¼Œå½“ç”¨æ–‡æœ¬æ¡†è·å–æ—¶ï¼Œæ ·å¼å‘ç”Ÿå˜åŒ–ï¼ŒåŒæ—¶æç¤ºç”¨æˆ·è¾“å…¥é‚®ç®±çš„æ–¹æ³•ã€‚
 	</p>
 	<p>
-		µ±ÓÃ»§ÔÚÎÄ±¾¿òÖĞÊäÈëÓÊÏäºó£¬¶ªÊ§½¹µãÊ±£¬½«¼ì²âÆäÄÚÈİÊÇ·ñÎª¿Õ£¬Èç¹û²»Îª¿Õ»òÓÊÏä¸ñÊ½²»·û£¬ÑùÊ½½«ÔÙ´Î·¢Éú±ä»¯£¬Í¬Ê±ÌáÊ¾³ö´íĞÅÏ¢£»Èç¹ûÊäÈëÕıÈ·£¬ÑùÊ½·µ»Ø³õÊ¼×´Ì¬£¬²¢ÏÔÊ¾Ò»¸ö´ò¹´µÄÍ¼Æ¬¡£
+		å½“ç”¨æˆ·åœ¨æ–‡æœ¬æ¡†ä¸­è¾“å…¥é‚®ç®±åï¼Œä¸¢å¤±ç„¦ç‚¹æ—¶ï¼Œå°†æ£€æµ‹å…¶å†…å®¹æ˜¯å¦ä¸ºç©ºï¼Œå¦‚æœä¸ä¸ºç©ºæˆ–é‚®ç®±æ ¼å¼ä¸ç¬¦ï¼Œæ ·å¼å°†å†æ¬¡å‘ç”Ÿå˜åŒ–ï¼ŒåŒæ—¶æç¤ºå‡ºé”™ä¿¡æ¯ï¼›å¦‚æœè¾“å…¥æ­£ç¡®ï¼Œæ ·å¼è¿”å›åˆå§‹çŠ¶æ€ï¼Œå¹¶æ˜¾ç¤ºä¸€ä¸ªæ‰“å‹¾çš„å›¾ç‰‡ã€‚
 	</p>
-	<h2>ÊµÏÖ´úÂë</h2>
+	<h2>å®ç°ä»£ç </h2>
 	<pre>
 $(function(){
   $("#txtEmail").trigger("focus");
-  // Ä¬ÈÏÊ±ÎÄ±¾¿ò»ñÈ¡½¹µã
+  // é»˜è®¤æ—¶æ–‡æœ¬æ¡†è·å–ç„¦ç‚¹
   $("#txtEmail").focus(function(){
-  // ÎÄ±¾¿ò»ñÈ¡½¹µãÊÂ¼ş
+  // æ–‡æœ¬æ¡†è·å–ç„¦ç‚¹äº‹ä»¶
     $(this).removeClass("txtBlur").addClass("txtInit");
     $("#email").removeClass("divBlur").addClass("divFocu");
-    $("#spnTip").removeClass("spnBlur").removeClass("spnSucc").html("ÇëÊäÈëÄú³£ÓÃÓÊÏäµØÖ·£¡");
+    $("#spnTip").removeClass("spnBlur").removeClass("spnSucc").html("è¯·è¾“å…¥æ‚¨å¸¸ç”¨é‚®ç®±åœ°å€ï¼");
   })
 
   $("#txtEmail").blur(function(){
-  // ÎÄ±¾¿ò¶ªÊ§½¹µãÊÂ¼ş
+  // æ–‡æœ¬æ¡†ä¸¢å¤±ç„¦ç‚¹äº‹ä»¶
     var vtxt=$("#txtEmail").val();
     if(vtxt.length==0){
       $(this).removeClass("txtInit").addClass("txtBlur");
       $("#email").removeClass("divFocu").addClass("divBlur");
-      $("#spnTip").addClass("spnBlur").html("ÓÊÏäµØÖ·²»ÄÜÎª¿Õ£¡");
+      $("#spnTip").addClass("spnBlur").html("é‚®ç®±åœ°å€ä¸èƒ½ä¸ºç©ºï¼");
     }
     else {
       if (!chkEmail(vtxt)){
-      // ¼ì²âÓÊÏä¸ñÊ½ÊÇ·ñÕıÈ·
+      // æ£€æµ‹é‚®ç®±æ ¼å¼æ˜¯å¦æ­£ç¡®
         $(this).removeClass("txtInit")
         .addClass("txtBlur");
         $("#email").removeClass("divFocu")
         .addClass("divBlur");
         $("#spnTip").addClass("spnBlur")
-        .html("ÓÊÏä¸ñÊ½²»ÕıÈ·!");	
+        .html("é‚®ç®±æ ¼å¼ä¸æ­£ç¡®!");	
       }	
-      else { //Èç¹ûÕıÈ·
+      else { //å¦‚æœæ­£ç¡®
         $(this).removeClass("txtBlur").addClass("txtInit");
         $("email").removeClass("divFocu");
         $("#spnTip").removeClass("spnBlur").addClass("spnSucc").html("");
@@ -145,8 +144,8 @@ $(function(){
     }
   })
 
-  // ÑéÖ¤ÓÊÏä¸ñÊ½ÊÇ·ñÕıÈ·
-  // ²ÎÊıstrEmail£¬ĞèÒªÑéÖ¤µÄÓÊÏä
+  // éªŒè¯é‚®ç®±æ ¼å¼æ˜¯å¦æ­£ç¡®
+  // å‚æ•°strEmailï¼Œéœ€è¦éªŒè¯çš„é‚®ç®±
   function chkEmail(strEmail){
     if (!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(strEmail)){
       return false;
@@ -156,18 +155,18 @@ $(function(){
     }
   }
 })</pre>
-	<h2>´úÂëÊ¾Àı</h2>
+	<h2>ä»£ç ç¤ºä¾‹</h2>
 	<form action="#" id="form1">
-		<div id="email" class="divInit">ÓÊÏä£º
+		<div id="email" class="divInit">é‚®ç®±ï¼š
 			<span id="spnTip" class="spnInit"></span>
 			<input type="text" class="txtInit" id="txtEmail"></div>
 	</form>
-	<h2>´úÂëËµÃ÷</h2>
+	<h2>ä»£ç è¯´æ˜</h2>
 	<p>
-		ÎÄ±¾¿òµÄblur¶ªÊ§½¹µãÊÂ¼ş£¬Æä´úÂëÓëfocusÊÂ¼şÓĞÏàËÆÖ®´¦£¬¶¼ÊÇÏÈÇåÀíÔ­ÏÈ¼ÓÔØ¹ıµÄÒ³ÃæÑùÊ½£¬È»ºóÔö¼Ó±¾ÉíÊÂ¼şÖĞµÄÑùÊ½¡£²»Í¬Ö®´¦ÔÚÓÚ£¬ÔÚÎÄ±¾¿òµÄblurÊÂ¼şÖĞ£¬»¹Òª½øĞĞÎÄ±¾¿òÄÚÈİÊÇ·ñÎª¿ÕºÍÓÊÏä¸ñÊ½ÊÇ·ñ·ûºÏµÄ¼ì²â²Ù×÷¡£Èç¹û²»Îª¿Õ£¬ÔÙ½øĞĞ¼ì²â¡£chkEmail()ÖĞÄÇÒ»´®ÊÇÓÃÀ´ÑéÖ¤EmailÊÇ·ñÊäÈëÕıÈ·µÄÕıÔò±í´ïÊ½¡£
+		æ–‡æœ¬æ¡†çš„blurä¸¢å¤±ç„¦ç‚¹äº‹ä»¶ï¼Œå…¶ä»£ç ä¸focusäº‹ä»¶æœ‰ç›¸ä¼¼ä¹‹å¤„ï¼Œéƒ½æ˜¯å…ˆæ¸…ç†åŸå…ˆåŠ è½½è¿‡çš„é¡µé¢æ ·å¼ï¼Œç„¶åå¢åŠ æœ¬èº«äº‹ä»¶ä¸­çš„æ ·å¼ã€‚ä¸åŒä¹‹å¤„åœ¨äºï¼Œåœ¨æ–‡æœ¬æ¡†çš„bluräº‹ä»¶ä¸­ï¼Œè¿˜è¦è¿›è¡Œæ–‡æœ¬æ¡†å†…å®¹æ˜¯å¦ä¸ºç©ºå’Œé‚®ç®±æ ¼å¼æ˜¯å¦ç¬¦åˆçš„æ£€æµ‹æ“ä½œã€‚å¦‚æœä¸ä¸ºç©ºï¼Œå†è¿›è¡Œæ£€æµ‹ã€‚chkEmail()ä¸­é‚£ä¸€ä¸²æ˜¯ç”¨æ¥éªŒè¯Emailæ˜¯å¦è¾“å…¥æ­£ç¡®çš„æ­£åˆ™è¡¨è¾¾å¼ã€‚
 	</p>
 	<p>
-		ÔÚjQueryÖĞ£¬addClass()·½·¨µÄ¹¦ÄÜÊÇÔö¼ÓÄ³ÖÖCSSÑùÊ½£¬ÎªÁË¸üºÃµØÌåÏÖÉèÖÃµÄÑùÊ½£¬ÔÚÔö¼ÓĞÂµÄCSSÑùÊ½Ç°£¬Ó¦ÏÈÍ¨¹ıremoveClass()·½·¨£¬É¾³ıÒÑ¼ÓÔØ¹ıµÄÒ³ÃæÑùÊ½£¬ÒÔ´ïµ½Ô¤ÆÚµÄÒ³ÃæĞ§¹û¡£
+		åœ¨jQueryä¸­ï¼ŒaddClass()æ–¹æ³•çš„åŠŸèƒ½æ˜¯å¢åŠ æŸç§CSSæ ·å¼ï¼Œä¸ºäº†æ›´å¥½åœ°ä½“ç°è®¾ç½®çš„æ ·å¼ï¼Œåœ¨å¢åŠ æ–°çš„CSSæ ·å¼å‰ï¼Œåº”å…ˆé€šè¿‡removeClass()æ–¹æ³•ï¼Œåˆ é™¤å·²åŠ è½½è¿‡çš„é¡µé¢æ ·å¼ï¼Œä»¥è¾¾åˆ°é¢„æœŸçš„é¡µé¢æ•ˆæœã€‚
 	</p>
 </body>
 </html>
