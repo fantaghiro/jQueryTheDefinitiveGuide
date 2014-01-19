@@ -11,6 +11,8 @@
 		}
 		ul, li, a {
 			font-size: 13px;
+            padding: 0;
+            margin:0;
 		}
 		.menu {
 			width: 190px;
@@ -45,10 +47,144 @@
 		span {
 			padding-top: 3px;
 			font-size: 14px;
+			font-weight: bold;
+			float: left;
 		}
+		.tip {
+			width: 190px;
+			border: 2px solid #ffa200;
+			position: absolute;
+			padding: 10px;
+			background-color: #fff;
+			display: none;
+		}
+		.tip li {
+			line-height: 23px;
+		}
+		#sort {
+			position: absolute;
+			display: none;
+		}
+
 	</style>
+	<script>
+		$(function(){
+			var curY; //获取所选项的Top值
+			var curH; //获取所选项的Height值
+			var curW; //获取所选项的Width值
+			var srtY; //设置提示箭头的Top值
+			var srtX; //设置提示箭头的Left值
+			var objL; //获取当前对象
+			/*
+			* 设置当前位置数值
+			* 参数obj为当前对象名称
+			*/
+			function setInitValue(obj){
+				curY = obj.offset().top;
+				curH = obj.height();
+				curW = obj.width();
+				srtY = curY + 5 + "px"; //设置提示箭头的Top值
+				srtX = curW - 5 + "px"; //设置提示箭头的Left值
+			}
+			//设置当前所选项的鼠标滑过事件
+			$(".optn").mouseover(function(){
+				objL = $(this); //获取当前对象
+				setInitValue(objL); //设置当前位置
+				var allY = curY - curH + "px"; //设置提示框的Top值
+				objL.addClass("optnFocus"); //增加获取焦点时的样式
+				objL.next("ul").show()
+				//显示并设置提示框的坐标
+				.css({"top": allY, "left": curW})
+				$("#sort").show()
+				//显示并设置提示箭头的坐标
+				.css({"top": srtY, "left": srtX});
+			})
+			.mouseout(function(){ //设置当前所选项的鼠标移出事件
+				//删除获取焦点时的样式
+				$(this).removeClass("optnFocus");
+				$(this).next("ul").hide(); //隐藏提示框
+				$("#sort").hide(); //隐藏提示箭头
+			})
+			$(".tip").mousemove(function(){
+				$(this).show(); //显示提示框
+				objL = $(this).prev("li"); //获取当前的上级li对象
+				setInitValue(objL); //设置当前位置
+				//增加上级li对象获取焦点时的样式
+				objL.addClass("optnFocus");
+				//显示并设置提示箭头的坐标
+				$("#sort").show().css({"top": srtY, "left": srtX});
+			})
+			.mouseout(function(){
+				$(this).hide(); //隐藏提示框
+				//删除获取焦点时的样式
+				$(this).prev("li").removeClass("optnFocus");
+				$("#sort").hide(); //隐藏提示箭头
+			})
+		})
+	</script>
 </head>
 <body>
+	<h1>列表中的导航菜单应用</h1>
+	<h2>功能描述</h2>
+	<p>
+		在页面表单中，分别展示某类产品的全部子类项，当用户将鼠标移动某项子类时，所选子类样式发生变化，并在该子类的右边以浮动的形式展示该类的全部产品：当用户将鼠标移出某项子类时，所选子类样式恢复到初始值，同时，隐藏已显示的全部子类产品。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  var curY; //获取所选项的Top值
+  var curH; //获取所选项的Height值
+  var curW; //获取所选项的Width值
+  var srtY; //设置提示箭头的Top值
+  var srtX; //设置提示箭头的Left值
+  var objL; //获取当前对象
+  /*
+  * 设置当前位置数值
+  * 参数obj为当前对象名称
+  */
+  function setInitValue(obj){
+    curY = obj.offset().top;
+    curH = obj.height();
+    curW = obj.width();
+    srtY = curY + 5 + "px"; //设置提示箭头的Top值
+    srtX = curW - 5 + "px"; //设置提示箭头的Left值
+  }
+  //设置当前所选项的鼠标滑过事件
+  $(".optn").mouseover(function(){
+    objL = $(this); //获取当前对象
+    setInitValue(objL); //设置当前位置
+    var allY = curY - curH + "px"; //设置提示框的Top值
+    objL.addClass("optnFocus"); //增加获取焦点时的样式
+    objL.next("ul").show()
+    //显示并设置提示框的坐标
+    .css({"top": allY, "left": curW})
+    $("#sort").show()
+    //显示并设置提示箭头的坐标
+    .css({"top": srtY, "left": srtX});
+  })
+  .mouseout(function(){ //设置当前所选项的鼠标移出事件
+    //删除获取焦点时的样式
+    $(this).removeClass("optnFocus");
+    $(this).next("ul").hide(); //隐藏提示框
+    $("#sort").hide(); //隐藏提示箭头
+  })
+  $(".tip").mousemove(function(){
+    $(this).show(); //显示提示框
+    objL = $(this).prev("li"); //获取当前的上级li对象
+    setInitValue(objL); //设置当前位置
+    //增加上级li对象获取焦点时的样式
+    objL.addClass("optnFocus");
+    //显示并设置提示箭头的坐标
+    $("#sort").show().css({"top": srtY, "left": srtX});
+  })
+  .mouseout(function(){
+    $(this).hide(); //隐藏提示框
+    //删除获取焦点时的样式
+    $(this).prev("li").removeClass("optnFocus");
+    $("#sort").hide(); //隐藏提示箭头
+  })
+})</pre>
+	<h2>代码示例</h2>
 	<ul>
 		<li class="menu">
 			<div>
@@ -89,8 +225,91 @@
 					<li><a href="#">数码产品5</a></li>
 				</ul>
 			</ul>
-			<img src="images/sort.gif" alt="" id="sort">
+			<img src="img/control.png" alt="" id="sort">
 		</li>
 	</ul>
+	<h2>代码分析</h2>
+	<p>
+		通过列表元素&ltul&gt实现菜单导航条的功能，在很多大型的购物网站中随处可见。这样的导航菜单的功能之一是，当鼠标移到某个子菜单的选项上，浮动显示子菜单相对应的全部产品，并且提示箭头指向该子菜单选项，同时，子菜单选项的样式发生变化。
+	</p>
+	<p>
+		为实现该功能，首先通过下列代码获取所有子菜单，并设置mousemove事件，其代码如下：
+		<pre>
+$(".optn").mouseover(function(){
+  //执行代码
+  ...
+})</pre>
+	</p>
+	<p>
+		在子菜单选项的mouseover事件中，先通过自定义的函数setInitValue获取提示箭头的位置，即srtY与srtX变量值。然后根据当前所选的子菜单项的Top和Width值，设置浮动提示框的Top和Left值，即代码中的allY与curW变量的值，其代码如下：
+		<pre>
+...省略部分代码
+objL = $(this); //获取当前对象
+setInitValue(objL); //设置当前位置
+var allY = curY - curH + "px"; //设置提示框的Top值
+...省略部分代码</pre>
+	</p>
+	<p>
+		接下来，获取子菜单项对应的浮动提示框，并根据设置的位置显示提示框和提示箭头，同时，自身增加获取焦点时的样式，其实现的代码如下：
+		<pre>
+...省略部分代码
+objL.addClass("optnFocus"); //增加获取焦点时的样式
+objL.next("ul").show()
+//显示并设置提示框的坐标
+.css({"top": allY, "left": curW})
+$("#sort").show()
+//显示并设置提示箭头的坐标
+.css({"top": srtY, "left": srtX});
+...省略部分代码</pre>
+	</p>
+	<p>
+		当子菜单的鼠标移出时，触发mouseout事件，在该事件中，先移除所增加的焦点样式，然后隐藏对应的提示框和提示箭头，其实现代码如下：
+		<pre>
+...省略部分代码
+.mouseout(function(){ //设置当前所选项的鼠标移出事件
+//删除获取焦点时的样式
+$(this).removeClass("optnFocus");
+$(this).next("ul").hide(); //隐藏提示框
+$("#sort").hide(); //隐藏提示箭头
+})
+...省略部分代码</pre>
+	</p>
+	<p>
+		由于子菜单在鼠标移出mouseout事件，隐藏了对应显示的提示框和提示箭头，因此，当用户将鼠标移出子菜单时，提示框和提示箭头都不见了，这不是我们想要的功能。为了避免这样的效果，需要设置提示框的鼠标mousemove和mouseout事件，提示框注册mousemove事件的代码如下：
+		<pre>
+...省略部分代码
+$(".tip").mousemove(function(){
+  //执行代码
+  ...
+})
+...省略部分代码</pre>
+	</p>
+	<p>
+		在提示框的mousemove事件中，为了改变所选子菜单的样式，先获取子菜单，其代码如下：
+		<pre>
+objL = $(this).prev("li"); //获取当前的上级li对象</pre>
+		然后，通过自定义函数setInitValue，获取提示箭头的位置，并显示在页面中，同时，再增加获取焦点时的样式。其代码如下：
+		<pre>
+...省略部分代码
+setInitValue(objL); //设置当前位置
+  //增加上级li对象获取焦点时的样式
+  objL.addClass("optnFocus");
+  //显示并设置提示箭头的坐标
+  $("#sort").show().css({"top": srtY, "left": srtX});
+})
+...省略部分代码</pre>
+	</p>
+	<p>
+		在提示框的mouseout事件中，移除所增加的焦点样式，并隐藏提示框和提示箭头，其实现的代码如下：
+		<pre>
+...省略部分代码
+.mouseout(function(){
+  $(this).hide(); //隐藏提示框
+  //删除获取焦点时的样式
+  $(this).prev("li").removeClass("optnFocus");
+  $("#sort").hide(); //隐藏提示箭头
+})
+...省略部分代码</pre>
+	</p>
 </body>
 </html>
