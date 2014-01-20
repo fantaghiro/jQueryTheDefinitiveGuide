@@ -6,26 +6,14 @@
 		<script src="js/jquery-1.10.2.js"></script>
 		<script>
 			$(function(){
-				var province= new Array();
-				province[0]="山东";
-				province[1]="江苏";
-				var city= new Array();
-				city[0][0]="烟台";
-				city[0][1]="青岛";
-				city[1][0]="南京";
-				city[1][1]="徐州";
-				var warehouse=new Array();
-				warehouse[0][0][0]="烟台1仓";
-				warehouse[0][0][1]="烟台2仓";
-				warehouse[0][1][0]="青岛1仓";
-				warehouse[0][1][1]="青岛2仓";
-				warehouse[1][0][0]="南京1仓";
-				warehouse[1][0][1]="南京2仓";
-				warehouse[1][1][0]="徐州1仓";
-				warehouse[1][1][1]="徐州2仓";
-				for (i=0; i<2; i++){
-					$("#province").append("<option>"+province[i]+"</option>");
-				};
+				var choice = new Array();
+				choice = ["山东",
+							[["烟台",
+								["烟台1厂","烟台2厂"]], 
+							["青岛",
+								["青岛1厂","青岛2厂","青岛3厂"]], 
+							["枣庄",
+								["枣庄1厂"]]]
 			})
 		</script>
 	</head>
