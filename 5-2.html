@@ -1,0 +1,46 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		img {
+			display: none;
+			cursor: pointer;
+		}
+	</style>
+	<script type="text/javascript">
+		$(function(){
+			$("a").click(function(){ //显示链式点击事件
+				$("img").show(3000, function(){ //显示完成时执行的函数
+					$(this).css("border", "solid 1px #ccc");
+				})
+			})
+			$("img").click(function(){ //显示图片的点击事件
+				$(this).hide(3000); //动画效果隐藏
+			})
+		})
+	</script>
+</head>
+<body>
+	<h1>显示与隐藏——动画效果的show()与hide()方法</h1>
+	<h2>功能描述</h2>
+	<p>
+		在页面中单击“显示”链接，通过show()方法，以动画的方式显示一幅图片，同时，在方法中执行一个回调函数，用于改变图片的边框样式；当单击已显示的图片时，通过hide()方法以动画的方式隐藏该图片。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+    $("a").click(function(){ //显示链式点击事件
+        $("img").show(3000, function(){ //显示完成时执行的函数
+            $(this).css("border", "solid 1px #ccc");
+        })
+    })
+    $("img").click(function(){ //显示图片的点击事件
+        $(this).hide(3000); //动画效果隐藏
+    })
+})</pre>
+	<h2>代码实例</h2>
+	<a href="javascript:void(0)">显示</a>
+	<img src="http://blog.codepen.io/wp-content/uploads/2012/06/Button-Black-Small.png">
+</body>
+</html>

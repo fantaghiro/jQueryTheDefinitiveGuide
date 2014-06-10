@@ -1,0 +1,88 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		div {
+			font-size: 13px;
+		}
+		.divFrame {
+			width: 300px;
+			border: solid 1px #666;
+		}
+		.divFrame .divTitle {
+			padding: 5px;
+			background-color: #eee;
+			cursor: pointer;
+		}
+		.divFrame .divContent {
+			padding: 8px;
+		}
+		.divFrame .divContent img {
+			border: solid 1px #ccc;
+			padding: 2px;
+		}
+	</style>
+	<script type="text/javascript">
+		$(function(){
+			var blnShow = false; //初始化一个布尔变量值
+			var $Title = $(".divTitle"); //定义变量获取标题部分
+			var $Tip = $("#divTip"); //定义变量获取提示元素
+
+			$Title.click(function(){
+				if (!blnShow) {
+					$("img").slideUp(3000, function(){
+						$Tip.html("关闭成功！");
+					})
+					$(this).html("显示图片");
+					blnShow = true;
+				}
+				else {
+					$Tip.html("");
+					$("img").slideDown(3000);
+					$(this).html("隐藏图片");
+					blnShow = false;
+				}
+			})
+		})
+	</script>
+</head>
+<body>
+	<h1>滑动——slideDown()与slideUp()方法</h1>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，单击“标题”栏时，通过slideUp()方法，以动画的效果将“内容”栏的图片向上滑动，直到完全看不见，并改变“标题”栏中的内容；再次单击“标题”栏时，通过slideDown()方法，将“内容”栏中的图片向下滑动，直到全部显示，“标题”栏中的内容页同时发生相应改变。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+    var blnShow = false; //初始化一个布尔变量值
+    var $Title = $(".divTitle"); //定义变量获取标题部分
+    var $Tip = $("#divTip"); //定义变量获取提示元素
+
+    $Title.click(function(){
+        if (!blnShow) {
+            $("img").slideUp(3000, function(){
+                $Tip.html("关闭成功！");
+            })
+            $(this).html("显示图片");
+            blnShow = true;
+        }
+        else {
+            $Tip.html("");
+            $("img").slideDown(3000);
+            $(this).html("隐藏图片");
+            blnShow = false;
+        }
+    })
+})</pre>
+	<h2>代码实例</h2>
+	<div class="divFrame">
+		<div class="divTitle">隐藏图片</div>
+		<div class="divContent">
+			<img src="http://blog.codepen.io/wp-content/uploads/2012/06/Button-Black-Small.png">
+			<div id="divTip"></div>
+		</div>
+	</div>
+</body>
+</html>

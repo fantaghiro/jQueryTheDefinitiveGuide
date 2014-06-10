@@ -55,8 +55,8 @@
 			height: 100%;
 			background-color: #000;
 			position: absolute;
-			top: 0px;
-			left: 0px;
+			top: 0;
+			left: 0;
 			filter:alpha(opacity=30);
 			display: none;
 			z-index: 100;	
@@ -81,6 +81,7 @@
 			function showDialog(){
 				var objW=$(window); //当前窗口
 				var objC=$(".dialog"); //对话框
+				var objMask=$(".mask")
 				var brsW=objW.width();
 				var brsH=objW.height();
 				var sclL=objW.scrollLeft();
@@ -90,9 +91,11 @@
 				//计算对话框居中时的左边距
 				var left=sclL+(brsW-curW)/2;
 				//计算对话框居中时的上边距
-				var top=sclT+(brsH-curH)/2;
+				var top=(brsH-curH)/2;
 				//设置对话框在页面中的位置
+				var height=brsH+sclT;
 				objC.css({"left": left, "top": top});
+				objMask.css({"height": height+"px"});
 			}
 			$(window).resize(function(){ //页面窗口大小改变事件
 				if (!$(".dialog").is(":visible")){

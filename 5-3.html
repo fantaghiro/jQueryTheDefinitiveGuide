@@ -1,0 +1,106 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		div, input {
+			font-size: 13px;
+		}
+		.divFrame {
+			width: 300px;
+		}
+		.divFrame .divMenu {
+			float: left;
+		}
+		.divFrame .divContent {
+			float: right;
+		}
+		.divFrame .divContent img {
+			display: none;
+		}
+		.btn {
+			border: #666 1px solid;
+			padding: 2px;
+			width: 80px;
+			margin-bottom: 5px;
+			filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff,EndColorStr=#ECE9D8);
+		}
+	</style>
+	<script type="text/javascript">
+		$(function(){
+			$("input:eq(0)").click(function(){
+				$("img").toggle();
+			})
+			$("input:eq(1)").click(function(){
+				var intI = 0;
+				var blnA = intI > 1;
+				$("img").toggle(blnA);
+			})
+			$("input:eq(2)").click(function(){
+				$("img").toggle(3000, function(){
+					$(this)
+					.css({
+						"border": "solid 1px #ccc",
+						"padding": "2px"
+					});
+				});
+			})
+		})
+	</script>
+</head>
+<body>
+	<h1>显示与隐藏——toggle方法</h1>
+	<h2>toggle()方法的三种调用形式</h2>
+	<ul>
+		<li>
+			形式一，无参数调用格式<br>
+			<code>toggle()</code>
+		</li>
+		<li>
+			形式二、逻辑参数调用格式<br>
+			<code>toggle(switch)</code>
+			<p>switch为一个布尔值，即true或false。当该值为true时，显示元素；否则，隐藏元素</p>
+		</li>
+		<li>
+			形式三、动画效果调用格式<br>
+			<code>toggle(speed, [callback])</code>
+		</li>
+	</ul>
+	<h2>功能描述</h2>
+	<p>
+		为了更直观地区分开togggle()方法中的三种形式，在页面中设置了三个按钮分别对应三种调用的形式。通过单击按钮，触发toggle()方法，实现图片的切换显示效果。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+    $("input:eq(0)").click(function(){
+        $("img").toggle();
+    })
+    $("input:eq(1)").click(function(){
+        var intI = 0;
+        var blnA = intI > 1;
+        $("img").toggle(blnA);
+    })
+    $("input:eq(2)").click(function(){
+        $("img").toggle(3000, function(){
+            $(this)
+            .css({
+                "border": "solid 1px #ccc",
+                "padding": "2px"
+            });
+        });
+    })
+})</pre>
+	<h2>代码实例</h2>
+	<div class="divFrame">
+		<div class="divMenu">
+			<input id="Button1" type="button" value="无参数" class="btn"><br>
+			<input id="Button2" type="button" value="逻辑显示" class="btn"><br>
+			<input id="Button3" type="button" value="动画显示" class="btn">
+		</div>
+		<div class="divContent">
+			<img src="http://blog.codepen.io/wp-content/uploads/2012/06/Button-Black-Small.png">
+		</div>		
+	</div>
+</body>
+</html>

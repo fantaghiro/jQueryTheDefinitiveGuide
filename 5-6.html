@@ -1,0 +1,92 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		.divFrame {
+			border: solid 1px #666;
+			width: 300px;
+			text-align: center;
+		}
+		.divFrame .divTitle {
+			background-color: #eee;
+			padding: 5px 0px 5px 0px;
+		}
+		.divFrame .divContent {
+			padding: 5px 0px 5px 0px;
+		}
+		.divFram .divContent img {
+			border: solid 1px #eee;
+			padding: 2px;
+		}
+		.divFrame .divTip {
+			font-size: 13px;
+			font-weight: bold;
+		}
+		.btn {
+			border: #666 1px solid;
+			padding: 2px;
+			width: 80px;
+			filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff,EndColorStr="ECE9D8");
+		}
+	</style>
+	<script type="text/javascript">
+		$(function(){
+			$img = $("img"); //获取图片元素对象
+			$tip = $(".divTip"); //获取提示元素对象
+			$("#Button1").click(function(){
+				$tip.html(""); //清空提示内容
+				//在3000毫秒中淡入图片，并执行一个回调函数
+				$img.fadeIn(3000, function(){
+					$tip.html("淡入成功！");
+				})
+			})
+			$("#Button2").click(function(){
+				$tip.html(""); //清空提示内容
+				//在3000毫秒中淡出图片，并执行一个回调函数
+				$img.fadeOut(3000, function(){
+					$tip.html("淡出成功！");
+				})
+			})
+		})
+	</script>
+</head>
+<body>
+	<h1>淡入淡出——fadeIn()与fadeOut()方法</h1>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，设置两个按钮，一个用于但如图片，另一个用于淡出图片；同时无论是淡入还是淡出图片，效果完成后，都执行一个回调函数，显示当前操作的结果。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+    $img = $("img"); //获取图片元素对象
+    $tip = $(".divTip"); //获取提示元素对象
+    $("#Button1").click(function(){
+        $tip.html(""); //清空提示内容
+        //在3000毫秒中淡入图片，并执行一个回调函数
+        $img.fadeIn(3000, function(){
+            $tip.html("淡入成功！");
+        })
+    })
+    $("#Button2").click(function(){
+        $tip.html(""); //清空提示内容
+        //在3000毫秒中淡出图片，并执行一个回调函数
+        $img.fadeOut(3000, function(){
+            $tip.html("淡出成功！");
+        })
+    })
+})</pre>
+	<h2>代码实例</h2>
+	<div class="divFrame">
+		<div class="divTitle">
+			<input id="Button1" type="button" value= "fadeIn" class="btn">
+			<input id="Button2" type="button" value= "fadeOut" class="btn">
+		</div>
+		<div class="divContent">
+			<div class="divTip"></div>
+			<img src="http://blog.codepen.io/wp-content/uploads/2012/06/Button-Black-Small.png">
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		.divFrame {
+			border: solid 1px #666;
+			background-color: #eee;
+			padding: 5px;
+			width: 300px;
+		}
+		.divFrame img {
+			border: solid 1px #eee;
+			padding: 2px;
+		}
+	</style>
+	<script type="text/javascript">
+		$(function(){
+			$(".divFrame").click(function(){ //div元素点击事件
+				//图片高度状态自动切换，并执行一个回调函数
+				$("img").slideToggle(3000, function(){
+					$("img").css("border", "solid 1px #ccc");
+				})
+			})
+		})
+	</script>
+</head>
+<body>
+	<h1>滑动——slideToggle()方法</h1>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，使用一个<code>&lt;div&gt;</code>标记包含一个<code>&lt;img&gt;</code>图片，当单击<code>&lt;div&gt;</code>元素时，通过slideToggle()方法，以动画的效果自动切换图片高度状态。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+    $(".divFrame").click(function(){ //div元素点击事件
+        //图片高度状态自动切换，并执行一个回调函数
+        $("img").slideToggle(3000, function(){
+            $("img").css("border", "solid 1px #ccc");
+        })
+    })
+})</pre>
+	<h2>代码实例</h2>
+	<div class="divFrame">
+		<img src="http://blog.codepen.io/wp-content/uploads/2012/06/Button-Black-Small.png">
+	</div>
+</body>
+</html>
