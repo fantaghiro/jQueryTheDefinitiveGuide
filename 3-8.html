@@ -1,0 +1,44 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		.cls1 {
+			font-weight: bold;
+			font-style: italic;
+		}
+		.cls2 {
+			border: solid 1px #666;
+			background-color: #eee;
+		}
+	</style>
+	<script>
+		$(function(){
+			$("p:eq(2)").addClass("cls1 cls2");
+			// 同时增加两个样式类别
+		})
+	</script>
+</head>
+<body>
+	<h1>元素样式操作——增加CSS类别</h1>
+	<p>
+		通过addClass()方法增加元素类别的名称，其语法格式如下：<code>addClass(class)</code>。其中，参数class为类别的名称，也可以增加多个类别的名称，只需要用空格将其隔开即可，其语法格式为：<code>addClass(class0 class1 ...)</code>。
+	</p>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，设置两个样式类cls1和cls2，当单击页面中p元素时，增加这两个样式类别，并将改变后的效果显示在页面中。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  $("p:eq(2)").addClass("cls1 cls2");
+  // 同时增加两个样式类别
+})</pre>
+	<h2>代码示例</h2>
+	<p>This is a Sample.</p>
+	<h2>代码说明</h2>
+	<p>
+		使用addClass()方法仅是追加样式类别，即它还保存原有的类别，例如：原有标记为<code>&ltp class="cls0"&gt</code>，执行代码<code>$("p").addClass("cls1 cls2")</code>后，其最后元素类别为<code>&ltp class="cls0 cls1 cls2"&gt</code>，仍然保留原有类别cls0，仅是增加了类别cls1和cls2。
+	</p>
+</body>
+</html>

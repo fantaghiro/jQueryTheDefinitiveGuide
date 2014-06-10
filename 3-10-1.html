@@ -1,0 +1,128 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		ul li {
+			padding-left: 0px;
+			list-style: none;
+			border-left: 0px;
+			margin-bottom: 0px;
+		}
+		div, div p, div ul li {
+			font-size: 13px;
+		}
+		ul {
+			padding: 0px;
+			list-style: none;
+		}
+		ul li {
+			line-height: 2.0em;
+		}
+		.divL {
+			float: left;
+			width: 200px;
+			background-color: #eee;
+			border: solid 1px #666;
+			margin: 5px;
+			padding: 0px 8px 0px 8px;
+		}
+		.divR {
+			float: left;
+			width: 200px;
+			display: none;
+			border: solid 1px #ccc;
+			margin: 5px;
+			padding: 0px 8px 8px 8px;
+		}
+		.txt {
+			border: #666 1px solid;
+			padding: 3px;
+			width: 120px;
+		}
+		.btn {
+			border: #666 1px solid;
+			pading: 2px;
+			width:60px;
+			filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#ECE9DB);
+		}
+		h2 {
+			clear: left;
+		}
+	</style>
+	<script>
+		$(function(){
+			$("#Button1").click(function(){
+			// 获取参数
+				var $str1=$("#select1").val();
+				// 获取元素名
+				var $str2=$("#text1").val();
+				// 获取内容
+				var $str3=$("#select2").val();
+				// 获取属性名
+				var $str4=$("#text2").val();
+				// 获取属性值
+				var $div=$("<"+$str1+" "+$str3+"='"+$str4+"'>"+$str2+"</"+$str1+">");
+				// 创建DOM对象
+				$(".divR").show().append($div);
+				// 插入节点中
+			})
+		})
+	</script>
+</head>
+<body>
+	<h1>动态创建节点元素</h1>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，分别设置左右两个部分，左边部分设置需要创建的元素对应的参数，如元素名、内容等，当用户设置完成后，单击“创建”按钮，则在页面的右边即时显示创建的元素。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  $("#Button1").click(function(){
+  // 获取参数
+    var $str1=$("#select1").val();
+    // 获取元素名
+    var $str2=$("#text1").val();
+    // 获取内容
+    var $str3=$("#select2").val();
+    // 获取属性名
+    var $str4=$("#text2").val();
+    // 获取属性值
+    var $div=$("<"+$str1+" "+$str3+"='"+$str4+"'>"+$str2+"</"+$str1+">");
+    // 创建DOM对象
+    $(".divR").show().append($div);
+    // 插入节点中
+  })
+})</pre>
+	<h2>代码示例</h2>
+	<div class="divL">
+		<p></p>
+		<ul>
+			<li>元素名
+				<select id="select1">
+					<option value="p">p</option>
+					<option value="div">div</option>
+				</select>
+			</li>
+			<li>内容为：
+				<input type="text" id="text1" class="txt">
+			</li>
+			<li>属性名：
+				<select id="select2">
+					<option value="title">title</option>
+				</select>
+			</li>
+			<li>属性值：
+				<input type="text" id="text2" class="txt">
+			</li>
+			<li style="text-align: center; padding-top: 5px"><input type="button" id="Button1" value="创建" class="btn" /></li>
+		</ul>
+	</div>
+	<div class="divR"></div>
+	<h2>代码说明</h2>
+	<p>
+		注意：函数$(html)只完成DOM元素创建，加入到页面还需要通过元素节点的插入或追加操作；同时，在创建DOM元素时，要注意字符标记是否完全闭合，否则达不到预期效果。
+	</p>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+	<title>第一个简单的jQuery程序</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/jquery-1.10.2.js"></script>
+	<style>
+.divFrame {
+	width: 260px;
+	border: solid 1px #666;
+	font-size: 10pt;
+}
+.divTitle {
+	background-color: #eee;
+	padding: 5px;
+}
+.divContent {
+	padding: 5px;
+	display: none;
+}
+.divCurrColor {
+	background-color: Red;
+}
+	</style>
+	<script>
+$(function(){
+	$(".divTitle").click(function(){
+		$(this).addClass("divCurrColor")
+			.next(".divContent").css("display", "block");
+	})
+})
+	</script>
+</head>
+<body>
+	<h1>jQuery事件的链式写法</h1>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，有一个&ltdiv&gt标记，在该标记内，包含第二个&ltdiv&gt标记，一个为主题，另一个为内容。页面首次加载时，被包含的内容&ltdiv&gt标记是不可见的，当用户单击主题&ltdiv&gt标记时，改变自身的背景色，并将内容&ltdiv&gt标记显示出来。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+&ltstyle&gt
+.divFrame {
+	width: 260px;
+	border: solid 1px #666;
+	font-size: 10pt;
+}
+.divTitle {
+	background-color: #eee;
+	padding: 5px;
+}
+.divContent {
+	padding: 5px;
+	display: none;
+}
+.divCurrColor {
+	background-color: Red;
+}
+&lt/style&gt
+&ltscript&gt
+$(function(){
+	$(".divTitle").click(function(){
+		$(this).addClass("divCurrColor")
+			.next(".divContent").css("display", "block");
+	})
+})
+&lt/script&gt
+	</pre>
+	<h2>实现示例</h2>
+	<div class="divFrame">
+		<div class="divTitle">主题</div>
+		<div class="divContent">
+			<a href="#">链接一</a>
+			<a href="#">链接二</a>
+			<a href="#">连接三</a>
+		</div>
+	</div>
+	<h2>代码说明</h2>
+	<p>在上述代码中就采用了链式写法。当用户单击class名称为<code>divTitle</code>的元素时，自身增加名称为<code>divCurrColor</code>的样式；同时，将接下来class名称为<code>divContent</code>元素显示出来。可以看出，两个功能的实现通过<code>.</code>符号连接在一起。</p>
+</body>

@@ -1,0 +1,166 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		h3, li {
+			font-size: 13px;
+		}
+		#divFrame {
+			border: solid 1px #666;
+			width: 301px;
+			overflow: hidden;
+		}
+		#divFrame .clsHead {
+			background-color: #eee;
+			padding: 8px;
+			height: 18px;
+			cursor: hand;
+		}
+		#divFrame .clsHead h3 {
+			padding: 0px;
+			margin: 0px;
+			float: left;
+		}
+		#divFrame .clsHead span {
+			float: right;
+			margin-top: 3px;
+		}
+		#divFrame .clsContent {
+			padding: 8px;
+		}
+		#divFrame .clsContent ul {
+			list-style-type: none;
+			margin: 0px;
+			padding: 0px;
+		}
+		#divFrame .clsContent ul li {
+			float: left;
+			width: 95px;
+			height: 23px;
+			line-height: 23px;
+			padding-left: inherit;
+			border-left: inherit;
+			margin-botton: inherit;
+		}
+		#divFrame .clsBot {
+			float: right;
+			padding-top: 5px;
+			padding-bottom: 5px;
+		}
+		.GetFocus {
+			background-color: #eee;
+		}
+	</style>
+	<script>
+		$(function(){ 
+		//页面加载事件
+			$(".clsHead").click(function(){ //图片单击事件
+				if ($(".clsContent").is(":visible")) { 
+					// 如果内容可见
+					$(".clsHead span img").attr("src","images/a1.gif");
+					// 改变图片
+					$(".clsContent").css("display", "none");
+				} else {
+					$(".clsHead span img").attr("src", "images/a2.gif");
+					// 改变图片
+					$(".clsContent").css("display", "block");
+					// 显示内容
+				}
+			});
+			$(".clsBot > a").click(function(){ 
+				//热点链接单击事件
+					if($(".clsBot > a").text()=="简化") {
+					// 如果内容为“简化”字样
+						$("ul li:gt(4):not(:last)").hide();
+						// 隐藏index号大于4且不是最后一项的元素
+						$(".clsBot > a").text("更多");
+					} else {
+						$("ul li:gt(4):not(:last)").show().addClass("GetFocus");
+						// 显示所选元素且增加样式
+						$(".clsBot > a").text("简化");
+						// 将字符内容更改为“简化”
+					}
+				});
+		})		
+	</script>
+</head>
+<body>
+	<h1>综合案例分析——导航条在项目中的应用</h1>
+	<h2>需求分析</h2>
+	<p>本案例的需求主要有以下两点：</p>
+	<p>1）在页面中创建一个导航条，单击标题时，可以伸缩导航条的内容，同时，标题中的提示图片也随之改变。</p>
+	<p>2）单击“简化”链接时，隐藏指定的内容，并将“简化”字样改变成“更多”，单击“更多”链接时，返回初始状态，并改变指定显示元素的背景色。</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){ 
+//页面加载事件
+  $(".clsHead").click(function(){ //图片单击事件
+    if ($(".clsContent").is(":visible")) { 
+	// 如果内容可见
+      $(".clsHead span img").attr("src","images/a1.gif");
+	  // 改变图片
+	  $(".clsContent").css("display", "none");
+      } else {
+	  $(".clsHead span img").attr("src", "images/a2.gif");
+	  // 改变图片
+	  $(".clsContent").css("display", "block");
+	  // 显示内容
+	  }
+  });
+  $(".clsBot > a").click(function(){ 
+  //热点链接单击事件
+    if($(".clsBot > a").text()=="简化") {
+    // 如果内容为“简化”字样
+      $("ul li:gt(4):not(:last)").hide();
+      // 隐藏index号大于4且不是最后一项的元素
+      $(".clsBot > a").text("更多");
+      } else {
+      $("ul li:gt(4):not(:last)").show().addClass("GetFocus");
+      // 显示所选元素且增加样式
+      $(".clsBot > a").text("简化");
+      // 将字符内容更改为“简化”
+      }
+  });
+})		
+	</pre>
+	<h2>代码示例</h2>
+	<div id="divFrame">
+		<div class="clsHead">
+			<h3>图书分类</h3>
+			<span><img src="images/a2.gif" alt=""></span>
+		</div>
+		<div class="clsContent">
+			<ul>
+				<li><a href="#">小说</a><i> (1110)</i></li>
+				<li><a href="#">文艺</a><i></i> (230)</li>
+				<li><a href="#">青春</a><i></i> (1430)</li>
+				<li><a href="#">少儿</a><i></i> (1560)</li>
+				<li><a href="#">生活</a><i></i> (870)</li>
+				<li><a href="#">社科</a><i></i> (1460)</li>
+				<li><a href="#">管理</a><i></i> (1450)</li>
+				<li><a href="#">计算机</a><i></i> (1780)</li>
+				<li><a href="#">教育</a><i></i> (930)</li>
+				<li><a href="#">工具书</a><i></i> (3450)</li>
+				<li><a href="#">引进版</a><i></i> (980)</li>
+				<li><a href="#">其他类</a><i></i> (3230)</li>
+			</ul>
+			<div class="clsBot">
+				<a href="#">简化</a>
+				<img src="images/a5.gif" alt="">
+			</div>
+		</div>
+	</div>
+	<h2>代码分析</h2>
+	<p>
+		在页面代码中，首先通过如下代码：<code>$(".clsContent").css("display", "none");</code>获取类名称为“clsContent”的元素集合，并实现其内容的显示或隐藏。与此同时，通过下面代码变换图片：<code>$(".clsHead span img").attr("src", "images/a1.gif");</code>。其中，“clsHead span img”表示获取类型clsHead中<code>span</code>下的<code>img</code>标记，即图片元素；<code>attr(key, value)</code>是jQuery中一个设置元素属性的函数，其功能是为所匹配的元素设置属性值，key是属性名称，value是属性值或内容。因此，此行代码的功能是，获取图片元素并改变其图片来源。
+	</p>
+	<p>
+		为了能够实现单击标题后内容可以伸缩的功能，首先通过如下代码，检测当前内容的隐藏或显示状态：<code>if($(".clsContent").is(":visible"))</code>。其中“$("clsContent")”获取内容元素，“is”是判断，“:visible”表示是否可见，此行代码用于判断内容元素是否可见，它返回一个布尔值，如果为true，则执行if后面的语句块，否则执行else后面的语句块。
+	</p>
+	<p>在超级链接单击事件中，通过下面的代码检测单击的是“简化”还是“更多”字样<code>if($(".clsBot > a").text()=="简化")</code>。其中“$(".clsBot > a")”获取超级链接元素，text()是jQuery中一个获取元素内容的函数。此行代码的意义为，判断超级链接元素的内容是否为“简化”样式，然后根据检测结果，执行不同的语句块。</p>
+	<p>
+		在代码中，通过如下代码实现指定内容的隐藏：<code>$("ul li:gt(4):not(:last)").hide();</code>。其中“ul li”获取元素，“:gt(4)”和“:not(:last)”分别为两个并列的过滤选择条件，前者表示Index号大于4，后者表示不是最有一个元素，二者组合成一个过滤条件，即选Index号大于4并且不是最后一个的元素集合；hide()是jQuery中一个隐藏元素的函数，此行代码的意思为将通过过滤选择器获取的元素隐藏。
+	</p>
+</body>
+</html>

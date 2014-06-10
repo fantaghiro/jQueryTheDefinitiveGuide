@@ -1,0 +1,58 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		div, span {
+			float: left;
+			border: solid 1px #ccc;
+			margin: 8px;
+			display: none;
+		}
+		.clsFraA {
+			width: 65px;
+			height: 65px;
+		}
+		.clsFraB {
+			width: 45px;
+			height: 45px;
+			background-color: #eee;
+		}
+		.clsFraC {
+			width: 25px;
+			height: 25px;
+			background-color: #ddd;
+		}
+	</style>
+	<script>
+	$(function(){
+		$("#divMid").css("display", "block");
+		$("#divMid").nextAll().css("display", "block");
+		//匹配所有后面元素
+	})
+	</script>
+</head>
+<body>
+	<h1>jQuery层次选择器——匹配所有后面元素</h1>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，设置4块<code>&ltdiv&gt</code>标记，其中在第二块<code>&ltdiv&gt</code>中，添加1个<code>&ltspan&gt</code>标记，在该<code>&ltspan&gt</code>标记中又新增1个<code>&ltspan&gt</code>标记，全部元素初始值均为隐藏，然后通过jQuery层次选择器，显示相应的页面标记。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  $("#divMid").css("display", "block");
+  $("#divMid").nextAll().css("display", "block");
+  //匹配所有后面元素
+})</pre>
+	<h2>代码示例</h2>
+	<div class="clsFraA">Left</div>
+	<div class="clsFraA" id="divMid">
+		<span class="clsFraB" id="Span1">
+			<span class="clsFraC" id="Span2"></span>
+		</span>
+	</div>
+	<div class="clsFraA">Right_1</div>
+	<div class="clsFraA">Right_2</div>
+</body>
+</html>

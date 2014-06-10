@@ -1,0 +1,48 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		div {
+			float: left;
+			border: solid 1px #ccc;
+			margin: 8px;
+			width: 65px;
+			height: 65px;
+			display: none;
+		}
+		span {
+			float: left;
+			border: solid 1px #ccc;
+			margin: 8px;
+			width: 45px;
+			height: 45px;
+			background-color: #eee;
+		}
+	</style>
+	<script>
+		$(function(){
+			$("div:has(span)").css("display", "block");
+			// 显示含有选择器所匹配的元素
+		})
+	</script>
+</head>
+<body>
+	<h1>jQuery选择器——内容过滤选择器——获取含有选择器所匹配的元素</h1>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，根据需要创建四个<code>&ltdiv&gt</code>标记，并在其中的<code>&ltdiv&gt</code>中新建一个<code>&ltspan&gt</code>标记，在其余<code>&ltdiv&gt</code>标记中输入内容（或为空），通过内容过滤选择器获取指定的元素，并显示在页面中。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  $("div:has(span)").css("display", "block");
+  // 显示含有选择器所匹配的元素
+})</pre>
+	<h2>代码示例</h2>
+	<div>ABCD</div>
+	<div><span></span></div>
+	<div>EFaH</div>
+	<div></div>
+</body>
+</html>

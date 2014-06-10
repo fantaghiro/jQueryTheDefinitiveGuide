@@ -1,0 +1,78 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		ul li {
+			padding-left: 0px;
+			list-style: none;
+			border-left: none;
+			margin-bottom: 0px;
+		}
+		ul {
+			width: 200px;
+		}
+		ul li {
+			padding: 0px;
+			height: 23px;
+		}
+		span {
+			padding-left: 20px;
+		}
+		.btn {
+			border: #666 1px solid;
+			padding: 2px;
+			width:60px;
+			filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff,EndColorStr=#ECE9D8);
+		}
+	</style>
+	<script>
+		$(function(){
+			$("ul li:first").css("font-weight", "bold");
+			//设置首行
+			$("#Button1").click(function(){
+				$("ul li").remove("li[title=t]");
+				// 删除指定属性的元素
+				$("ul li:eq(1)").remove();
+				// 删除节点中的第2个元素
+			})
+		})
+	</script>
+</head>
+<body>
+	<h1>删除元素</h1>
+	<p>
+		在DOM操作页面时，删除多余或指定的页面元素是非常必要的，jQuery提供了两种可以删除元素的方法，即<code>remove()</code>和<code>empty()</code>。严格来说，<code>empty</code>方法并非真正意义上的删除，使用该方法，仅仅可以清空全部的节点或节点所包括的所有后代元素，并非删除节点和元素。<br/>
+		<code>remove()</code>方法的语法格式如下：<code>remove([expr])</code>。其中参数expr为可选项，如果接受参数，则该参数为筛选元素的jQuery表达式，通过该表达式获取指定的元素，并进行删除。<br/>
+		<code>empty()</code>方法的语法格式如下：<code>empty()</code>。其功能为清空所选择的页面元素或所有的后代元素。
+	</p>
+	<h2>功能说明</h2>
+	<p>
+		在页面中，通过ul标记展示列表式的数据信息，并设置一个按钮。单击该按钮时，将删除指定的标记元素。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  $("ul li:first").css("font-weight", "bold");
+  //设置首行
+  $("#Button1").click(function(){
+  $("ul li").remove("li[title=t]");
+  // 删除指定属性的元素
+  $("ul li:eq(1)").remove();
+  // 删除节点中的第2个元素
+  })
+})</pre>
+	<h2>代码示例</h2>
+	<ul>
+		<li>学号</li>
+		<li title="t">1001</li>
+		<li>1002</li>
+		<li>1003</li>
+		<li style="text-align: center; padding-top: 5px;">
+			<input type="button" id="Button1" value=" 删除 " class="btn">
+		</li>
+	</ul>
+	<h2>代码说明</h2>
+	<p>注意：在本示例中，删除按钮执行两次删除元素的操作。首先是删除title等于t的元素；其次是删除li节点中的第2项元素。当学号为“1001”被删除后，第2项元素就是“1002”，故仅留下学号为“1003”。</p>
+</body>
+</html>

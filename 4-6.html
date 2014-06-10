@@ -1,0 +1,91 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		.btn {
+			border: #666 1px solid;
+			padding: 2px;
+			width: 80px;
+			filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff,EndColorStr=#ECE9D8);
+		}
+		div {
+			line-height: 1.8em;
+		}
+	</style>
+	<script>
+		$(function(){
+			function oClick(){
+			// 自定义事件
+				$("#divTip").append("<div>按钮二的单击事件</div>");	
+			}
+			$("input:eq(0)").bind("click", function(){
+				// 绑定单击事件
+					$("#divTip").append("<div>按钮一的单击事件</div>");
+			});
+			$("input:eq(1)").bind("click", oClick);
+			// 绑定自定义事件
+			$("input:eq(2)").bind("click", function(){
+				// 移除全部单击事件
+					$("input").unbind();
+			});
+		})
+	</script>
+</head>
+<body>
+	<h1>移除事件——用unbind方法移除事件</h1>
+	<p>
+		在DOM对象的实践操作中，既然存在用于绑定事件的bind方法，也相应存在用于移除绑定事件的方法，在jQuery中，可以通过<code>unbind()</code>方法移除绑定的所有事件或指定某一个事件。
+	</p>
+	<p>
+		unbind()的功能是移除元素绑定的事件，其调用的语法格式如下：<code>unbind([type], [fn])</code>。其中，参数type为移除的事件类型，fn为需要移除的事件处理函数；如果该方法没有参数，则移除所有绑定的事件；如果带有参数type，则移除该参数所指定的事件类型；如果带有参数fn，则只移除绑定时指定的函数fn。
+	</p>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，设置三个按钮，前来呢哥哥按钮分别执行各自的事件，第三个按钮通过unbind方法移除所绑定的全部事件。即点击第三个按钮后，前两个按钮的事件将不会执行。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  function oClick(){
+  // 自定义事件
+    $("#divTip").append("<div>按钮二的单击事件</div>");	
+  }
+  $("input:eq(0)").bind("click", function(){
+  // 绑定单击事件
+    $("#divTip").append("<div>按钮一的单击事件</div>");
+  });
+  $("input:eq(1)").bind("click", oClick);
+  // 绑定自定义事件
+  $("input:eq(2)").bind("click", function(){
+  // 移除全部单击事件
+    $("input").unbind();
+  });
+})</pre>
+	<h2>代码示例</h2>
+	<div>
+		<input type="button" value="按钮一" id="Button1" class="btn">
+		<input type="button" value="按钮二" id="Button2" class="btn">
+		<input type="button" value="按钮三" id="Button3" class="btn">
+	</div>
+	<div id="divTip" style="padding-top: 10px;"></div>
+	<h2>代码说明</h2>
+	<p>
+		通过语法介绍我们知道，unbind()方法不仅可以删除某类型的全部事件，还可删除某个指定的自定义事件。如上例中，如果将代码：<br>
+		<pre>
+...省略前部分
+$("input:eq(2)").bind("click", function(){
+	$("input").unbind();
+});
+...省略后部分</pre>
+		修改成下列代码：
+		<pre>
+...省略前部分
+$("input:eq(2)").bind("click", function(){
+	$("input").unbind("click", oClick);
+});
+...省略后部分</pre>
+		那么，当单击“删除事件”按钮后，单击“按钮一”将有对应事件的响应，而单击“按钮二”将无对应事件的响应，因为在“删除事件”的按钮中，移除的仅仅是“按钮二”的自定义事件，因此，只有该按钮没有事件的相应。
+	</p>
+</body>
+</html>

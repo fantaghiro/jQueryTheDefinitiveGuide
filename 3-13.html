@@ -1,0 +1,35 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<script>
+		$(function(){
+			$("span").after(retHtml);
+			// 插入内容
+			function retHtml(){
+				var str="<span><b>  Write Less Do More</b></span>";
+				return str;
+			}
+		})
+	</script>
+</head>
+<body>
+	<h1>外部插入节点</h1>
+	<h2>功能说明</h2>
+	<p>
+		在页面中，创建一个span标记，然后通过function函数返回另外一个span标记，并将该标记插入页面中的span标记后。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  $("span").after(retHtml);
+  // 插入内容
+  function retHtml(){
+    var str="<span><b>  Write Less Do More</b></span>";
+    return str;
+  }
+})</pre>
+	<h2>代码示例</h2>
+	<span>jQuery</span>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		h1.sample {
+			font-size: 16px;
+		}
+		div {
+			border: solid 1px #eee;	
+			text-align: center;		
+			width: 400px;
+			}
+		span {
+			text-align: center;
+		}
+		ul.sample {
+			list-style-type: none;
+			padding: 0px;
+		}
+		ul.sample li {
+			width: 100px;
+			border: none;
+			padding-left: 0;
+		}
+		.DefClass, .NotClass {
+			height: 23px;
+			width: 100px;
+			line-height: 23px;
+			float: left;
+		}
+		ul.sample li.GetFocus {
+			width: 98px;
+			border: solid 1px #666;
+			background-color: #eee;
+		}
+		#spnMove {
+			display: block;
+			width: 400px;
+			height: 23px;
+			line-height: 23px;
+			clear: both;
+		}
+	</style>
+	<script>
+	$(function(){
+		$("li:even").addClass("GetFocus");
+		// 增加所有索引值为偶数的元素类别，从0开始计数
+	})
+	</script>
+</head>
+<body>
+	<h1>jQuery选择器——简单过滤选择器——增加所有索引值为偶数的元素类别，从0开始计数</h1>
+	<h2>功能描述</h2>
+	<p>
+		在页面中设置一个<code>&lth1&gt</code>标记用于显示主题，创建<code>&ltul&gt</code>标记并在其中放置四个<code>&ltli&gt</code>，再创建一个<code>&ltspan&gt</code>标记，用于执行动画效果。通过简单过滤选择器获取元素，将选中的元素改变其类名称，从而突出其被选中的状态。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  $("li:even").addClass("GetFocus");
+  // 增加所有索引值为偶数的元素类别，从0开始计数
+})</pre>
+	<h2>代码示例</h2>
+	<div>
+	<h1 class="sample">基本过滤选择器</h1>
+	<ul class="sample">
+		<li class="DefClass">Item 0</li>
+		<li class="DefClass">Item 1</li>
+		<li class="NotClass">Item 2</li>
+		<li class="DefClass">Item 3</li>
+	</ul>
+	<span id="spnMove">Span Move</span>
+	</div>
+</body>
+</html>

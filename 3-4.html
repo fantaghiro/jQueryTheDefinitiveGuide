@@ -1,0 +1,52 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		.clsImg {
+			border: solid 1px #ccc;
+			padding: 3px;
+			float: left;
+		}
+		.clsSpn {
+			float: left;
+			padding-top: 10px;
+			padding-left: 10px;
+		}
+	</style>
+	<script>
+		$(function(){
+			$("img").attr("src", function(){
+				return "img/img0"+
+				Math.floor(Math.random()*2+1)+".png"
+			}); //设置src属性
+			$("img").attr("title", "这是Codepen的Logo");
+			//设置title属性
+			$("img").addClass("clsImg"); //增加样式
+			$(".clsSpn").html("这个图片的地址是: "+$("img").attr("src"));
+		})
+	</script>
+</head>
+<body>
+	<h1>设置元素属性（二）</h1>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，通过function()随机函数返回一个随机数字，依据该数字组成一个字符串作为标记&ltimg&gt属性的src值，由于是随机数字，因此每次获取的src属性值都不一样，从而实现在页面中随机展示图片的效果。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  $("img").attr("src", function(){
+    return "img/img0"+
+    Math.floor(Math.random()*2+1)+".png"
+  }); //设置src属性
+  $("img").attr("title", "这是Codepen的Logo");
+  //设置title属性
+  $("img").addClass("clsImg"); //增加样式
+  $(".clsSpn").html("这个图片的地址是: "+$("img").attr("src"));
+})</pre>
+	<h2>代码示例</h2>
+	<img src="img/img01.png" alt="" style="float: left" />
+	<span class="clsSpn"></span>	
+</body>
+</html>

@@ -1,0 +1,82 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		body {
+			font-size: 12px;
+		}
+		#tbStu {
+			width: 260px;
+			border: solid 1px #666;
+			background-color: #eee;
+		}
+		#tbStu tr {
+			line-height: 23px;
+		}
+		#tbStu tr th {
+			background-color: #ccc;
+			color: #fff;
+		}
+		#tbStu .trOdd {
+			background-color: #fff;
+		}
+	</style>
+	<script>
+		$(function(){
+			$("#tbStu tr:nth-child(even)").addClass("trOdd");
+		})
+	</script>
+</head>
+<body>
+	<h1>使用JavaScript实现隔行变色</h1>
+	<h2>功能描述</h2>
+	<p>在页面中，通过一个<code>&lttable&gt</code>标记展示数据列表信息，在元素标记中，奇数行与偶数行的背景色不同，从而实现隔行变色的页面展示效果。</p>
+	<h2>JavaScript实现代码</h2>
+	<pre>
+window.onload=function(){
+  var oTb=document.getElementById("tbStu");
+    for(var i=0; i&ltoTb.rows.length-1; i++){
+      if(i%2){
+      oTb.rows[i].className="trOdd";
+    }
+  }
+}</pre>
+
+	<h2>jQuery实现代码</h2>
+	<pre>
+$(function(){
+  $("#tbStu tr:nth-child(even)").addClass("trOdd");
+})</pre>
+	<h2>代码示例</h2>
+	<table id="tbStu" cellpadding="0" cellspacing="0">
+		<tbody>
+			<tr>
+				<th>学号</th><th>姓名</th><th>性别</th><th>总分</th>		
+			</tr>
+			<!-- 奇数偶 -->
+			<tr>
+				<td>1001</td><td>张晓明</td><td>男</td><td>320</td>	
+			</tr>
+			<!-- 偶数偶 -->
+			<tr>
+				<td>1002</td><td>李明琪</td><td>女</td><td>350</td>
+			</tr>
+			<tr>
+				<td>1003</td><td>孙小强</td><td>男</td><td>320</td>	
+			</tr>
+			<!-- 偶数偶 -->
+			<tr>
+				<td>1004</td><td>李红梅</td><td>女</td><td>350</td>
+			</tr>
+		</tbody>
+	</table>
+	<h2>代码说明</h2>
+	<p>
+		使用JavaScript代码，首先要通过ID号获取表格元素，然后遍历表格的各行，根据行号的奇偶性，动态设置该行的背景色，从而实现隔行变色的页面效果。
+	</p>
+	<p>
+		使用jQuery选择器可以很快捷地定位页面中的某个元素，并设置该元素的相应属性，具有代码简单、执行高效的特点。
+	</p>
+</body>
+</html>

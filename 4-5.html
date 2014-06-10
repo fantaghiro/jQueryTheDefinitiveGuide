@@ -1,0 +1,80 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		img {
+			border: 5px solid #ffffff;
+			border-radius: 150px;
+			width: 300px;
+			height: 300px;
+		}
+	</style>
+	<script>
+		$(function(){
+			var iteration=1;
+			$("img").click(function(){
+				switch(iteration) {
+					case 1:
+						$("img").attr("src", "http://books.sflep.com/media/catalog/product/cache/1/image/8a02aedcaf38ad3a98187ab0a1dede95/f/i/file_113_23.jpg");
+						$("img").attr("title", this.src);
+						iteration=2;
+						break;
+					case 2:
+						$("img").attr("src", "http://books.sflep.com/media/catalog/product/cache/1/image/8a02aedcaf38ad3a98187ab0a1dede95/f/i/file_113_18.jpg");
+						$("img").attr("title", this.src);
+						iteration=3;
+						break;
+					case 3:
+						$("img").attr("src", "http://books.sflep.com/media/catalog/product/cache/1/image/8a02aedcaf38ad3a98187ab0a1dede95/f/i/file_113_15.jpg");
+						$("img").attr("title", this.src);
+						iteration=1;
+						break;
+				}
+			})
+		})
+	</script>
+</head>
+<body>
+	<h1>☆新版jQuery中已移除——切换事件——toggle()方法</h1>
+	<p style="text-decoration: line-through">
+		在toggle()方法中，可以依次调用N个指定的函数，直到最后一个函数，然后重复对这些函数轮番调用。
+	</p>
+	<p style="text-decoration: line-through">
+		toggle()方法的功能是每次单击后依次调用函数，请注意到“依次”这两个字，说明该方法在调用函数时并非随机或指定调用，而是通过函数设置的前后顺序进行调用，其调用的语法格式如下：<code>toggle(fn, fn2, [fn3, fn4, ...])</code>。其中，参数fn, fn2, ..., fnN为单击时依次调用的函数。
+	</p>
+	<p>
+		鉴于该方法在jQuery1.9中已经删除，因此选择采取曲线救国的方法，此处仅采用一例。
+	</p>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，设置一个&ltimg&gt标记，当用户第一次单击该图片时，变换另外一幅图片；第二次单击图片时，变化第三幅图片；第三次单击时，返回第一次单击前的图片；依次轮番显示。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  var iteration=1;
+  $("img").click(function(){
+    switch(iteration) {
+      case 1:
+        $("img").attr("src", "http://books.sflep.com/media/catalog/product/cache/1/image/8a02aedcaf38ad3a98187ab0a1dede95/f/i/file_113_23.jpg");
+        $("img").attr("title", this.src);
+        iteration=2;
+        break;
+      case 2:
+        $("img").attr("src", "http://books.sflep.com/media/catalog/product/cache/1/image/8a02aedcaf38ad3a98187ab0a1dede95/f/i/file_113_18.jpg");
+        $("img").attr("title", this.src);
+        iteration=3;
+        break;
+      case 3:
+        $("img").attr("src", "http://books.sflep.com/media/catalog/product/cache/1/image/8a02aedcaf38ad3a98187ab0a1dede95/f/i/file_113_15.jpg");
+        $("img").attr("title", this.src);
+        iteration=1;
+        break;
+      }
+    })
+})</pre>
+	<h2>代码示例</h2>
+	<img src="http://books.sflep.com/media/catalog/product/cache/1/image/8a02aedcaf38ad3a98187ab0a1dede95/f/i/file_113_23.jpg" title=""/>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<script>
+		$(function(){
+			$("img").each(function(index){
+				// 根据形参index设置元素的title属性
+				this.title="第 "+index+" 幅风景图片，alt内容是 "+this.alt;
+			})
+		})
+	</script>
+</head>
+<body>
+	<h1>遍历元素</h1>
+	<p>
+		在DOM元素操作中，有时需要对同一标记的全部元素进行统一操作。在传统的JavaScript中，先获取元素的总长度，然后，以for循环语句，递减总长度，访问其中的某个元素，代码相对复杂；而在jQuery中，可以直接使用each()方法实现元素的遍历。其语法格式如下：<code>each(callback)</code>。<br>
+		其中参数callback是一个function函数，该函数还可以接受一个形参index，此形参为遍历元素的序号（从0开始）；如果需要访问元素中的属性，可以借助形参index，配合this关键字来实现元素属性的设置或获取。
+	</p>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，设置几幅图片，通过each()方法遍历全部的图片，并设置每幅图片的title属性。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  $("img").each(function(index){
+  // 根据形参index设置元素的title属性
+  this.title="第 "+index+" 幅风景图片，alt内容是 "+this.alt;
+  })
+})</pre>
+	<h2>代码示例</h2>
+	<p>
+		<img src="http://books.sflep.com/media/catalog/product/cache/1/image/160x/8a02aedcaf38ad3a98187ab0a1dede95/f/i/file_113_18.jpg" alt="第0幅封面" />
+		<img src="http://books.sflep.com/media/catalog/product/cache/1/image/160x/8a02aedcaf38ad3a98187ab0a1dede95/f/i/file_113_15.jpg" alt="第1幅封面" />
+		<img src="http://books.sflep.com/media/catalog/product/cache/1/image/160x/8a02aedcaf38ad3a98187ab0a1dede95/f/i/file_113_3.jpg" alt="第2幅封面" />
+	</p>
+</body>
+</html>

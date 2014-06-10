@@ -1,0 +1,63 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		div {
+			display: none;
+		}
+		select {
+			height: 65px;	
+		}
+		.clsIpt {
+				width: 100px;
+				padding: 3px;
+			}
+		.GetFocus {
+				border: solid 1px #666;
+				background-color: #eee;
+			}
+	</style>
+	<script>
+		$(function(){
+			$("#divA").show(3000);
+			$("#form1 #divA input:enabled").addClass("GetFocus");
+			// 增加表单中所有属性为可用的元素类别
+		})
+	</script>
+</head>
+<body>
+	<h1>jQuery选择器——表单对象属性过滤选择器——获取表单中所有属性为可用的元素</h1>
+	<h2>功能描述</h2>
+	<p>
+		在一个表单中，创建两个文本框对象，一个属性设置为<code>enabled</code>，另一个属性设置为<code>disabled</code>；再放置两个复选框对象，一个设置成被选中状态，另一个设置成未选中状态；同时创建一个列表框对象，并选中其中两项，通过表单对象属性过滤选择器获取指定元素，并处理该元素。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  ("#divA").show(3000);
+  $("#form1 input:enabled").addClass("GetFocus");
+  // 增加表单中所有属性为可用的元素类别
+})</pre>
+	<h2>代码示例</h2>
+	<form id="form1" style="width:241px">
+		<div id="divA">
+			<input type="text" value="可用文本框" class="clsIpt" />
+			<input type="text" disabled="disabled" value="不可用文本框" class="clsIpt" />
+		</div>
+		<div id="divB">
+			<input type="checkbox" checked="checked" value="1" /> 选中
+			<input type="checkbox" name="" id="" value="0" />未选中
+		</div>
+		<div id="divC">
+			<select multiple="multiple">
+				<option value="0">Item 0</option>
+				<option value="1" selected="selected">Item 1</option>
+				<option value="2">Item 2</option>
+				<option value="3" selected="selected">Item 3</option>
+			</select>
+			<span id="Span2"></span>
+		</div>
+	</form>
+</body>
+</html>

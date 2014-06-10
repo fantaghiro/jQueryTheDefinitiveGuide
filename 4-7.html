@@ -1,0 +1,46 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		.btn {
+			border: #666 1px solid;
+			padding: 2px;
+			width: 160px;
+			filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff,EndColorStr="#ECE9D8");
+		}
+	</style>
+	<script>
+		$(function(){
+			function btn_Click(){
+			// 自定义事件
+				this.value="010-12345678";	
+			}
+			$("input").bind("click", btn_Click);
+			// 绑定自定义事件
+		})
+	</script>
+</head>
+<body>
+	<h1>其他事件——方法one()绑定事件</h1>
+	<p>
+		one()方法功能是为所选的元素绑定一个仅触发一次的处理函数，其调用的语法格式为：<code>one(type, [data], fn)</code>。其中参数type为事件类型，即需要触发什么类型的事件；参数data为可选参数，表示作为event.data属性值传递给事件对象的额外数据对象；fn为绑定事件时所要触发的函数。
+	</p>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，设置一个按钮，初始值为“点击查看联系方式”，当单击该按钮时，通过jQuery中的one()方法，将联系方式显示在按钮上，再次单击则不响应任何事件。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  function btn_Click(){
+  // 自定义事件
+    this.value="010-12345678";	
+  }
+  $("input").bind("click", btn_Click);
+  // 绑定自定义事件
+})</pre>
+	<h2>代码示例</h2>
+	<input type="button" id="Button1" class="btn" value="点击查看联系方式">
+</body>
+</html>

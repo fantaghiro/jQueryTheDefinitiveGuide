@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+	<title>第一个简单的jQuery程序</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/jquery-1.10.2.js"></script>
+</head>
+<body>
+	<h1>jQuery访问DOM对象</h1>
+	<h2>什么是DOM对象</h2>
+	<p>
+		DOM（Document Object Model，文本对象模型）的每一个页面都是一个DOM对象，通过传统的Javascript方法访问页面中的元素，就是访问DOM对象。
+	</p>
+	<p>
+		例如：在页面中，有两个div标记元素，其代码如下：
+	</p>
+		<pre>
+&ltdiv id="divTmp"&gt测试文本&lt/div&gt
+&ltdiv id="divOut"&gt&lt/div&gt</pre>
+	<p>
+		通过下面的Javascript代码可以访问DOM对象和获取或设置其内容值：
+	</p>
+		<pre>
+var tDiv=document.getElementById("divTmp");
+//获取DOM对象
+var oDiv=document.getElementById("divOut");
+//获取DOM对象
+var	cDiv=tDiv.innerHTML;
+//获取DOM对象中的内容
+oDiv.innerHTML=cDiv;
+//设置DOM对象中的内容</pre>
+	<p>如果执行上面的Javascript代码，将在ID为<code>divOut</code>的标记中显示ID为<code>divTmp</code>的标记内容。
+	</p>
+	<h2>什么是jQuery对象</h2>
+	<p>
+		在jQuery库中，通过本身自带的方法获取页面元素的对象，我们称之为jQuery对象：为了同样实现在ID为<code>divOut</code>的标记中显示ID为<code>divTmp</code>的标记内容，采用jQuery访问页面元素的方法，其实现代码如下：
+	</p>
+	<pre>
+var tDiv=$("#divTmp");	//获取jQuery对象
+var oDiv=$("#divOut");	//获取jQuery对象
+var cDiv=tDiv.html();	//获取jQuery对象中的内容
+oDiv.html(cDiv);	//设置jQuery对象中的内容</pre>
+	<p>
+		通过代码的对比，可以看出jQuery对象访问方法比DOM对象访问方法更简单、高效，并且可实现同样的功能。
+	</p>
+</body>

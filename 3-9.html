@@ -1,0 +1,46 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		.clsImg {
+			border: solid 1px #666;
+			padding: 3px;
+		}
+	</style>
+	<script>
+		$(function(){
+			$("img").click(function(){
+				$(this).toggleClass("clsImg");
+				// 切换样式类别
+			})
+			$("img").mouseover(function(){
+				$(this).css("cursor", "pointer");
+			})
+		})
+	</script>
+</head>
+<body>
+	<h1>元素样式操作——类别切换</h1>
+	<p>
+		通过toggleClass()方法切换不同的元素类别，其语法格式如下：<code>toggleClass(class)</code>。其中参数class为类别名称，其功能是当元素中含有名称为class的CSS类别时，删除该类别，否则增加一个该名称的CSS类别。
+	</p>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，创建一个图片标记，通过toggleClass()方法实现对该标记中图片的切换显示。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  $("img").click(function(){
+    $(this).toggleClass("clsImg");
+    // 切换样式类别
+  })
+  $("img").mouseover(function(){
+    $(this).css("cursor", "pointer");
+  })
+})</pre>
+	<h2>代码示例</h2>
+	<img src="http://blog.codepen.io/wp-content/uploads/2012/06/Button-Fill-Black-Large.png" alt="" title="jQuery" />
+</body>
+</html>

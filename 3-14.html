@@ -1,0 +1,43 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<script>
+		$(function(){
+			$("img").click(function(){
+				$(this).clone(true).appendTo("span");
+			})
+			$("img").mouseover(function(){
+				$(this).css("cursor", "pointer");
+			})
+		})
+	</script>
+</head>
+<body>
+	<h1>复制节点</h1>
+	<p>
+		在页面中，有时需要将某个元素节点复制到另外一个节点后，如购物网站中的购物车的设计。在传统的javaScript中，需要编写较为复杂的代码，而在jQuery中，可以通过方法clone()轻松实现，该方法的语法格式为：<code>clone()</code>。其功能为复制匹配的DOM元素并且选中复制成功的元素，该方法仅是复制元素本身，被复制后的新元素不具有任何元素行为。如果需要在复制时将该元素的全部行为也进行复制，可以通过方法clone(
+		true)实现，其格式为：<code>clone(true)</code>。其中参数设置为true就可以复制元素的所有时间处理。
+	</p>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，创建一个img标记，显示一幅图片：当单击该图片时，在其右侧通过clone()方法复制一幅照片。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  $("img").click(function(){
+    $(this).clone(true).appendTo("span");
+  })
+  $("img").mouseover(function(){
+    $(this).css("cursor", "pointer");
+  })
+})</pre>
+	<h2>代码示例</h2>
+	<span><img src="http://books.sflep.com/media/catalog/product/cache/1/image/160x/8a02aedcaf38ad3a98187ab0a1dede95/f/i/file_113_18.jpg" title="封面" alt=""></span>
+	<h2>代码说明</h2>
+	<p>
+		注意：由于本示例中使用的是clone(true)方法，因此，当单击被复制的新图片时，由于它具有原图片的事务处理，因此，将在该图片的右侧出现一幅通过其复制的新图片；如果使用clone()方法，那么只有单击原图片才可以复制新的图片元素，新复制的图片元素不具有任何功能。
+	</p>
+</body>
+</html>

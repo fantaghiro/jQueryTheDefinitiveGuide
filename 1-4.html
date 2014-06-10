@@ -1,0 +1,50 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		.divDefault {
+			width: 260px;
+			font-size: 10pt;
+			padding: 5px;
+			cursor: pointer;
+		}
+		.divClick {
+			width: 260px;
+			border: solid 1px #666;
+			font-size: 10pt;
+			background-color: #eee;
+			padding: 5px;
+			cursor: pointer;
+		}
+	</style>
+	<script>
+		$(function(){
+			$(".divDefault").click(function(){
+				$(this).toggleClass("divClick").html("点击后的样式");
+			});
+		});
+	</script>
+</head>
+<body>
+	<h1>jQuery控制CSS</h1>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，增加<code>&ltdiv&gt</code>元素标记，当用户单击该元素时，变换其文本内容和背景颜色。再次点击时，恢复其初始的内容和背景色。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  $(".divDefault").click(function(){
+    $(this).toggleClass("divClick").html("点击后的样式");
+	});
+});		
+	</pre>
+	<h2>代码示例</h2>
+	<div class="divDefault">点击前的样子</div>
+	<h2>代码说明</h2>
+	<p>
+		在jQuery库中，通过简单的几行代码，就可以实现传统JavaScript大量代码完成的功能，节省开发者的时间，提高工作效率。
+	</p>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<script>
+	$(function(){
+		$("p:eq(1)").mouseover(function(){
+			$(this).css("cursor", "pointer");
+			// 鼠标位于索引号为1的p上时，变为手形
+		})
+		$("p:eq(1)").click(function(){
+			$(this).css("font-weight", "bold");
+			// 字体加粗
+			$(this).css("font-style", "italic");
+			// 斜体
+			$(this).css("background-color", "#eee");
+			// 增加背景色
+		})
+	})
+	</script>
+</head>
+<body>
+	<h1>元素样式操作——直接设置元素样式值</h1>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，创建一个p标记，单击该元素时，其中的文字加粗、斜体及增加背景色。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+  $("p:eq(1)").mouseover(function(){
+    $(this).css("cursor", "pointer");
+    // 鼠标位于索引号为1的p上时，变为手形
+  })
+  $("p:eq(1)").click(function(){
+    $(this).css("font-weight", "bold");
+    // 字体加粗
+    $(this).css("font-style", "italic");
+    // 斜体
+    $(this).css("background-color", "#eee");
+    // 增加背景色
+  })
+})</pre>
+	<h2>代码示例</h2>
+	<p>Please Click Me for Effect</p>
+</body>
+</html>
