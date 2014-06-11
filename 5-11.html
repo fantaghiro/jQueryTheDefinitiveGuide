@@ -1,0 +1,72 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		div, a {
+			font-size: 13px;
+		}
+		.divFrame {
+			border: solid 1px #666;
+			width: 233px;
+			text-align: center;
+		}
+		.divFrame .divTitle {
+			background-color: #eee;
+			padding: 5px 0px;
+		}
+		.divFrame .divContent {
+			padding: 5px 0px;
+		}
+		.divFrame .divContent img {
+			border: solid 1px #eee;
+			padding: 2px;
+		}
+	</style>
+	<script type="text/javascript">
+		$(function(){
+			$("a:eq(0)").click(function(){ //点击“开始”链接事件
+				$("img").slideToggle(3000); //“拉窗帘”方式切换图片
+			})
+			$("a:eq(1)").click(function(){ //点击“停止”链接事件
+				$("img").stop(); //停止正在执行的动画
+			})
+			$("a:eq(2)").click(function(){ //点击“延时”链接事件
+				$("img") //延时切换图片
+				.delay(2000)
+				.slideToggle(3000);
+			})
+		})
+	</script>
+</head>
+<body>
+	<h1>自定义动画——动画的停止和延时</h1>
+	<h2>stop()方法和delay()方法</h2>
+	<p>
+		stop()方法的格式如下：<code>stop([clearQueue], [gotoEnd])</code><br>
+		该方法的功能是停止所选元素中正在执行的动画，其中可选参数[clearQueue]是一个布尔值，表示是否停止正在执行的动画，另外一个可选参数[gotoEnd]也是一个布尔值，表示是否立即完成正在执行的动画。<br>
+		delay()方法的格式如下：<code>delay(duration, [queueName])</code><br>
+		该方法的功能是设置一个延时值来推迟后续队列中动画的执行，其中参数duration为延时的时间值，单位是毫秒。可选参数[queueName]表示队列名词，即动画队列。
+	</p>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，设置三个超级链接，分别为“开始”、“停止”、“延时”，单击“开始”后，页面中的图片以“拉窗帘”的方式动画切换显示状态；单击“停止”后，立刻停止正在执行中的动画效果；单击“延时”后，动画切换显示效果在延时2000毫秒后，再执行。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+	</pre>
+	<h2>代码实例</h2>
+	<div class="divFrame">
+		<div class="divTitle">
+			<a href="javascript:void(0)">开始</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="javascript:void(0)">停止</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="javascript:void(0)">延时</a>
+		</div>
+		<div class="divContent">
+			<img src="http://blog.codepen.io/wp-content/uploads/2012/06/Button-Black-Small.png">
+		</div>
+	</div>
+</body>
+</html>

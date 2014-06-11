@@ -1,0 +1,48 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		div {
+			border: solid 1px #666;
+			background-color: #eee;
+			width: 50px;
+			height: 50px;
+			font-size: 13px;
+			padding: 5px;
+			cursor: pointer;
+		}
+	</style>
+	<script type="text/javascript">
+		$(function(){
+			$("div").click(function(){ //div块单击事件
+				$(this)
+				.animate({height: 100}, "slow") //第1列
+				.animate({width: 100}, "slow") //第2列
+				.animate({height: 50}, "slow") //第3列
+				.animate({width: 50}, "slow"); //第4列
+			})
+		})
+	</script>
+</head>
+<body>
+	<h1>自定义动画——队列中的动画</h1>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，单击某个固定宽、高的&lt;div&gt;标记，首先，以动画的效果，将宽、高在原有基础上加大1倍；然后，再以动画的效果，将宽、高在原有基础上减小1倍。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+    $("div").click(function(){ //div块单击事件
+        $(this)
+        .animate({height: 100}, "slow") //第1列
+        .animate({width: 100}, "slow") //第2列
+        .animate({height: 50}, "slow") //第3列
+        .animate({width: 50}, "slow"); //第4列
+    })
+})</pre>
+	<h2>代码实例</h2>
+	<div>队列</div>
+</body>
+</html>

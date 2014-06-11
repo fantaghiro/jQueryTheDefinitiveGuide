@@ -1,0 +1,58 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		.divFrame {
+			border: solid 1px #ccc;
+			background-color: #eee;
+			width: 60px;
+			height: 60px;
+			font-size: 13px;
+			padding: 5px;
+			cursor: pointer;
+		}
+	</style>
+	<script type="text/javascript">
+		$(function(){
+			$(".divFrame").click(function(){ //div元素点击事件
+				$(this).animate({ //宽与高变化的动画效果
+					width: "20%",
+					height: "70px"
+				},
+				3000, function(){ //动画完成后执行的回调函数
+					$(this).css({"border": "solid 3px #666"})
+						.html("变大了！");
+				})
+			})
+		})
+	</script>
+</head>
+<body>
+	<h1>自定义动画——简单的动画</h1>
+	<h2>animate()方法</h2>
+	<p>
+		<code>animate()</code>方法给开发者定义各种复杂、高级的动画提供了极大的方便和空间，其调用的语法格式为：<code>animate(params, [duration], [easing], [callback])</code>
+	</p>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，单击某块&lt;div&gt;元素，其自身的高度与宽度以动画的效果增大。动画完成后，元素的边框加粗，并且边框颜色及&lt;div&gt;元素内容发生变化
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+    $(".divFrame").click(function(){ //div元素点击事件
+        $(this).animate({ //宽与高变化的动画效果
+            width: "20%",
+            height: "70px"
+        },
+        3000, function(){ //动画完成后执行的回调函数
+            $(this).css({"border": "solid 3px #666"})
+                .html("变大了！");
+        })
+    })
+})</pre>
+	<h2>代码实例</h2>
+	<div class="divFrame">点击变大</div>
+</body>
+</html>
