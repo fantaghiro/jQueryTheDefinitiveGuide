@@ -1,0 +1,58 @@
+<html>
+<head>
+    <script src="js/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+
+    </style>
+    <script type="text/javascript">
+
+    </script>
+</head>
+<body>
+<h1>动画效果综述</h1>
+<h2>各种动画方法说明</h2>
+<ul>
+    <li><code>show()</code>与<code>hide()</code>方法，元素以动画效果实现显示与隐藏，可以同时改变元素的多个属性，如宽度、高度、透明度。</li>
+    <li><code>fadeIn()</code>与<code>fadeOut()</code>方法，元素以动画的效果淡入与淡出，仅改变元素的透明度。</li>
+    <li><code>slideUp()</code>与<code>slideDown()</code>方法，元素以“卷窗帘”的动画效果显示与隐藏，仅改变元素的高度，其他属性不发生变化。</li>
+    <li><code>fadeTo()</code>方法，元素按指定的透明度进行渐进式调整，从而达到一种动画效果，该方法改变的是元素的透明度，宽度和高度都不发生变化。</li>
+    <li><code>toggle()</code>方法，可以代替<code>show()</code>与<code>hide()</code>两个方法，因此，其改变的元素属性也与<code>show()</code>与<code>hide()</code>方法一样。</li>
+    <li><code>slideToggle()</code>方法，可以代替<code>slideUp()</code>与<code>slideDown()</code>两个方法，改变的元素也与<code>slideUp()</code>与<code>slideDown()</code>方法一样。</li>
+    <li><code>animate()</code>方法，自定义元素的动画效果，可以实现上述6中方法中全部属性改变的功能，同时，还可以用动画的效果，改变其他的元素属性，该方法是上述6中方法的核心。</li>
+</ul>
+
+<h2>使用<code>animate()</code>方法代替其他动画效果</h2>
+<ul>
+    <li><code>animate()</code>方法代替<code>hide()</code>方法，代码如下：
+        <pre>
+$("页面元素").animate({height: "hide", width: "hide", opacity: "hide"}, 600); </pre>
+        等价于下列代码
+        <pre>
+$("页面元素").hide(600);</pre>
+    </li>
+    <li><code>animate()</code>方法代替<code>fadeOut()</code>方法，代码如下：
+    <pre>
+$("页面元素").animate({opacity: "hide"}, 600); </pre>
+        等价于下列代码
+        <pre>
+$("页面元素").fadeOut(600);</pre>
+    </li>
+    <li><code>animate()</code>方法代替<code>slideUp()</code>方法，代码如下：
+         <pre>
+$("页面元素").animate({height: "hide"}, 600); </pre>
+        等价于下列代码
+        <pre>
+$("页面元素").slideUp(600);</pre>
+    </li>
+    <li><code>animate()</code>方法代替<code>fadeTo()</code>方法，代码如下：
+        <pre>
+$("页面元素").animate({opacity: "0.8"}, 600); </pre>
+        等价于下列代码
+        <pre>
+$("页面元素").fadeTo(600, "0.8");</pre>
+    </li>
+</ul>
+
+</body>
+</html>

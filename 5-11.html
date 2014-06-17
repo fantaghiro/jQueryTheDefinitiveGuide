@@ -54,7 +54,19 @@
 	</p>
 	<h2>实现代码</h2>
 	<pre>
-	</pre>
+$(function(){
+    $("a:eq(0)").click(function(){ //点击“开始”链接事件
+        $("img").slideToggle(3000); //“拉窗帘”方式切换图片
+    })
+    $("a:eq(1)").click(function(){ //点击“停止”链接事件
+        $("img").stop(); //停止正在执行的动画
+    })
+    $("a:eq(2)").click(function(){ //点击“延时”链接事件
+        $("img") //延时切换图片
+        .delay(2000)
+        .slideToggle(3000);
+    })
+})</pre>
 	<h2>代码实例</h2>
 	<div class="divFrame">
 		<div class="divTitle">

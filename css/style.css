@@ -31,10 +31,10 @@ code {
   -moz-border-radius: 3px;
   border-radius: 3px;	
 }
-ul {
+ul, ol {
 	padding-left: 0;
 }
-ul li {
+ul li, ol li {
 	padding-left: 20px;
 	list-style: none;
 	border-left: 10px solid #ededed;
