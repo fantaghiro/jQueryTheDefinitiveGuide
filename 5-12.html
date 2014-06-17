@@ -58,8 +58,8 @@
                 var $img = $this.find("img"); //查找其中的图片元素
                 var $info = $this.find(".p_Alt"); //查询其中的图片信息元素
                 var arrPic = {}; //定义一个空数组保存初始的长与宽
-                arrPic.imgw = 440;
-                arrPic.imgh = 640;
+                arrPic.imgw = $img.width();
+                arrPic.imgh = $img.height();
                 arrPic.orgw = $this.width();
                 arrPic.orgh = $this.height();
                 $img.css({ //设置初始时的图片外边距位置
