@@ -174,10 +174,10 @@ $(function(){
             marginTop: intImgT
         });
         //将图片、点击放大链接、关闭按钮放入外框div中
-        var $drag = $("<div class='p_Img'></div>")
+        var $drag = $("&lt;div class='p_Img'&gt;&lt;/div&gt;")
                     .append($img).prependTo($this);
-        var $open = $("<a href='javascript:void(0)' class='p_Big' title = '点击放大'></a>").appendTo($this);
-        var $clos = $("<a href='javascript:void(0)' class = 'p_Cls' title = '点击关闭'></a>").appendTo($info);
+        var $open = $("&lt;a href='javascript:void(0)' class='p_Big' title = '点击放大'&gt;&lt;/a&gt;").appendTo($this);
+        var $clos = $("&lt;a href='javascript:void(0)' class = 'p_Cls' title = '点击关闭'&gt;&lt;/a&gt;").appendTo($info);
         //保存放入元素后的外框div的长与宽
         arrPic.dragw = $drag.width();
         arrPic.dragh = $drag.height();
