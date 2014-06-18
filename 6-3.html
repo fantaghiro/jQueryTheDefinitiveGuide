@@ -72,9 +72,9 @@ $(function(){
             var strHTML = ""; //初始化保存内容变量
             //遍历获取的数据
             $.each(data, function(InfoIndex, Info){
-                strHTML += "姓名：" + Info["name"] + "&lt;br&gt;";
-                strHTML += "性别：" + Info["sex"] + "&lt;br&gt;";
-                strHTML += "邮箱：" + Info["email"] + "&lt;hr&gt;";
+                strHTML += "姓名：" + Info[InfoIndex]["name"] + "&lt;br&gt;";
+                strHTML += "性别：" + Info[InfoIndex]["sex"] + "&lt;br&gt;";
+                strHTML += "邮箱：" + Info[InfoIndex]["email"] + "&lt;hr&gt;";
             })
             $("#divTip").html(strHTML); //显示处理后的数据
         })

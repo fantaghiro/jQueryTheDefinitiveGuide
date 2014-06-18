@@ -1,0 +1,98 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		div, input {
+			font-size: 13px;
+		}
+		.divFrame {
+			width: 260px;
+			border: solid 1px #666;
+		}
+		.divFrame .divTitle {
+			padding: 5px;
+			background-color: #eee;
+		}
+		.divFrame .divContent {
+			padding: 8px;
+		}
+		.divFrame .divContent .clsShow {
+			font-size: 14px;
+		}
+		.btn {
+			border: #666 1px solid;
+			padding: 2px;
+			width: 80px;
+			filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff,EndColorStr=#ECE9D8);
+		}
+	</style>
+	<script type="text/javascript">
+		$(function(){
+			$("#Button1").click(function(){ //按钮单击事件
+				//打开已获取返回数据的文件
+				$.getScript("UserInfo.js");
+			})
+		})
+	</script>
+</head>
+<body>
+	<h1>加载异步数据——jQuery中的全局函数getScript()</h1>
+	<h2>getScript()方法</h2>
+	<p>
+		在jQuery中，除通过全局函数getJSON获取.json格式的文件内容外，还可以通过另外一个全局函数getScript()获取.js文件的内容。其实，在页面中获取.js文件的内容有很多方法，如下列代码：
+		<pre>
+&lt;script type="text/javascript" src="Jscript/xx.js"&gt;&lt;/script&gt;</pre>
+		动态设置的代码如下：
+		<pre>
+$("&lt;script type='text/javascript' src='Jscript/xx.js' />")
+.appendTo("head");</pre>
+		但这样的调用方法并不是最理想的。在jQuery中，通过全局函数getScript()加载.js文件后，不仅可以像加载页面片段一样轻松地注入脚本，而且所注入的脚本自动执行，大大提高了页面的执行效率。函数getScript()的调用格式为：<code>$.getScript(url, [callback])</code>。其中，参数url为等待加载的JS文件地址，可选项[callback]参数表示加载成功时执行的回调函数。
+	</p>
+	<h2>功能描述</h2>
+	<p>
+		创建一个UserInfo.js文件，在该文件中，以数组的方式保存人员资料信心，然后，通过$.each()方法遍历各元素，将每次遍历元素的内容，以叠加的方式保存至变量strHTML，并将该变量的值作为ID号为"divTip"元素的内容显示在页面中。另外，新建一个页面，在该页面中，单击”获取数据“按钮后，打开UserInfo.js文件。
+	</p>
+	<h2>实现代码</h2>
+	<p>JavaScript代码</p>
+	<pre>
+$(function(){
+    $("#Button1").click(function(){ //按钮单击事件
+        //打开已获取返回数据的文件
+        $.getScript("http://fantaghiro.github.io/jQueryTheDefinitiveGuide/UserInfo.js");
+    })
+})</pre>
+	<p>UserInfo.js代码</p>
+	<pre>
+var data = [
+  {
+      "name": "陶国荣",
+      "sex": "男",
+      "email": "tao_guo_rong@163.com"
+  },
+  {
+      "name": "李建洲",
+      "sex": "女",
+      "email": "xiaoli@163.com"
+  }
+];
+
+var strHTML = ""; //初始化保存内容变量
+$.each(data, function() { //遍历获取的数据
+    strHTML += "姓名：" + this["name"] + "&lt;br&gt;";
+    strHTML += "性别：" + this["sex"] + "&lt;br&gt;";
+    strHTML += "邮箱：" + this["email"] + "&lt;hr&gt;";
+})
+$("#divTip").html(strHTML); //显示处理后的数据		
+	</pre>
+	<h2>代码实例</h2>
+	<div class="divFrame">
+		<div class="divTitle">
+			<input id="Button1" type="button" class="btn" value="获取数据" />
+		</div>
+		<div class="divContent">
+			<div id="divTip"></div>
+		</div>
+	</div>
+</body>
+</html>
