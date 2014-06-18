@@ -1,0 +1,65 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		div, input {
+			font-size: 13px;
+		}
+		.divFrame {
+			width: 260px;
+			border: solid 1px #666;
+		}
+		.divFrame .divTitle {
+			padding: 5px;
+			background-color: #eee;
+		}
+		.divFrame .divContent {
+			padding: 8px;
+		}
+		.divFrame .divContent .clsShow {
+			font-size: 14px;
+		}
+		.btn {
+			border: #666 1px solid;
+			padding: 2px;
+			width: 80px;
+			filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff,EndColorStr=#ECE9D8);
+		}
+	</style>
+	<script type="text/javascript">
+		$(function(){
+			$("#Button1").click(function(){ //按钮点击事件
+				$("#divTip").load("http://fantaghiro.github.io/jQueryTheDefinitiveGuide/6-1b.html"); //load()方法加载数据
+			})
+		})
+	</script>
+</head>
+<body>
+	<h1>加载异步数据——jQuery的load()方法</h1>
+	<h2>load()方法</h2>
+	<p>
+		创建两个新页面6-2.html和6-1b.html，前者用于加载页，在该页中，单击“加载”按钮后，在不刷新该页面的情况下，将6-1b.html页中的内容显示在a.html页面的&lt;div&gt;标记中；后者用于被加载页，在该页中，通过&lt;div&gt;标记包含一些文字内容。
+	</p>
+	<h2>功能描述</h2>
+	<p>
+		在页面中，设置三个超级链接，分别为“开始”、“停止”、“延时”，单击“开始”后，页面中的图片以“拉窗帘”的方式动画切换显示状态；单击“停止”后，立刻停止正在执行中的动画效果；单击“延时”后，动画切换显示效果在延时2000毫秒后，再执行。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+    $("#Button1").click(function(){ //按钮点击事件
+        $("#divTip").load("6-1b.html"); //load()方法加载数据
+    )
+})</pre>
+	<h2>代码实例</h2>
+	<div class="divFrame">
+		<div class="divTitle">
+			<input id="Button1" type="button" onclick="GetSendData()" class="btn" value="获取数据" />
+		</div>
+		<div class="divContent">
+			<div id="divTip"></div>
+		</div>
+	</div>
+</body>
+</html>
