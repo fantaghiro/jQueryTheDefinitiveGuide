@@ -1,0 +1,93 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		div, input {
+			font-size: 13px;
+		}
+		.divFrame {
+			width: 260px;
+			border: solid 1px #666;
+		}
+		.divFrame .divTitle {
+			padding: 5px;
+			background-color: #eee;
+		}
+		.divFrame .divContent {
+			padding: 8px;
+		}
+		.divFrame .divContent .clsShow {
+			font-size: 14px;
+		}
+		.btn {
+			border: #666 1px solid;
+			padding: 2px;
+			width: 80px;
+			filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff,EndColorStr=#ECE9D8);
+		}
+	</style>
+	<script type="text/javascript">
+		$(function(){
+			$("#Button1").click(function(){ //按钮单击事件
+				//打开文件，并通过回调函数处理获取的数据
+				$.getJSON("http://fantaghiro.github.io/jQueryTheDefinitiveGuide/UserInfo.json", function(data){
+					$("#divTip").empty(); //先清空标记中的内容
+					var strHTML = ""; //初始化保存内容变量
+					//遍历获取的数据
+					$.each(data, function(InfoIndex, Info){
+						strHTML += "姓名：" + Info["name"] + "<br>";
+						strHTML += "性别：" + Info["sex"] + "<br>";
+						strHTML += "邮箱：" + Info["email"] + "<hr>";
+					})
+					$("#divTip").html(strHTML); //显示处理后的数据
+				})
+			})
+		})
+	</script>
+</head>
+<body>
+	<h1>加载异步数据——jQuery中的全局函数getJSON()</h1>
+	<h2>getJSON()方法</h2>
+	<p>
+		虽然使用load()方法可以很快地加载数据到页面中，但有时需要对获取的数据进行处理，如果将用load()方法获取的内容进行遍历，也可以进行数据的处理，但这样获取的内容必须先插入页面中，然后才能进行，因此执行效率不高。
+	</p>
+	<p>
+		为了解决这个问题，我们采用将要获取的数据另存为一种轻量级的数据交互格式，即JSON文件格式，由于这种格式很方便计算机的读取，因而颇受开发者的青睐。在jQuery中，专门有一个全局函数getJSON()，用于调用JSON格式的数据，其调用的语法格式为：<code>$.getJSON(url, [data], [callback])</code>。
+	</p>
+	<p>
+		参数url表示请求的地址，可选项[data]参数表示发送到服务器的数据，其格式为key/value。另外一个可选项[callback]参数表示加载成功时执行的回调函数。
+	</p>
+	<h2>功能描述</h2>
+	<p>
+		创建一个JSON格式的文件UserInfo.json，用于保存人员资料信息，另外，新建一个页面，当单击页面中的“获取数据”按钮时，将通过全局函数getJSON()获取文件UserInfo.json中的全部数据，并展示在页面中。
+	</p>
+	<h2>实现代码</h2>
+	<pre>
+$(function(){
+    $("#Button1").click(function(){ //按钮单击事件
+        //打开文件，并通过回调函数处理获取的数据
+        $.getJSON("http://fantaghiro.github.io/jQueryTheDefinitiveGuide/UserInfo.json", function(data){
+            $("#divTip").empty(); //先清空标记中的内容
+            var strHTML = ""; //初始化保存内容变量
+            //遍历获取的数据
+            $.each(data, function(InfoIndex, Info){
+                strHTML += "姓名：" + Info["name"] + "&lt;br&gt;";
+                strHTML += "性别：" + Info["sex"] + "&lt;br&gt;";
+                strHTML += "邮箱：" + Info["email"] + "&lt;hr&gt;";
+            })
+            $("#divTip").html(strHTML); //显示处理后的数据
+        })
+    })
+})</pre>
+	<h2>代码实例</h2>
+	<div class="divFrame">
+		<div class="divTitle">
+			<input id="Button1" type="button" onclick="GetSendData()" class="btn" value="获取数据" />
+		</div>
+		<div class="divContent">
+			<div id="divTip"></div>
+		</div>
+	</div>
+</body>
+</html>
