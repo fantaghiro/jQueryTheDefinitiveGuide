@@ -1,0 +1,114 @@
+<html>
+<head>
+	<script src="js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		div, input {
+			font-size: 13px;
+		}
+		.divFrame {
+			width: 260px;
+			border: solid 1px #666;
+		}
+		.divFrame .divTitle {
+			padding: 5px;
+			background-color: #eee;
+		}
+		.divFrame .divContent {
+			padding: 8px;
+		}
+		.divFrame .divContent .clsShow {
+			font-size: 14px;
+		}
+		.btn {
+			border: #666 1px solid;
+			padding: 2px;
+			width: 80px;
+			filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff,EndColorStr=#ECE9D8);
+		}
+	</style>
+	<script type="text/javascript">
+		$(function(){
+			$("#Button1").click(function(){ //按钮单击事件
+				//打开文件，并通过回调函数处理获取的数据
+				$.get("http://fantaghiro.github.io/jQueryTheDefinitiveGuide/UserInfo.xml", function(data){
+					$("#divTip").empty(); //先清空标记中的内容
+					var strHTML = ""; //初始化保存内容变量
+					$(data).find("User").each(function(){ //遍历获取的数据
+						var $strUser = $(this);
+						strHTML += "姓名：" + 
+						$strUser.find("name").text() + "<br>";
+						strHTML += "性别：" +
+						$strUser.find("sex").text() + "<br>";
+						strHTML += "邮箱：" +
+						$strUser.find("email").text() + "<hr>";
+						})
+					$("#divTip").html(strHTML); //显示处理后的数据
+				})
+			})
+		})
+	</script>
+</head>
+<body>
+	<h1>加载异步数据——jQuery中异步加载XML文档</h1>
+	<h2>jQuery中的全局函数$.get()</h2>
+	<p>
+		jQuery中使用全局函数$.get()进行访问，其调用的语法格式为：<code>$.get(url, [data], [callback], [type])</code>。其中，参数url表示等待加载的数据地址，可选项[data]参数表示发送到服务器的数据，其格式为key/value，可选项[callback]参数表示加载成功时执行的回调函数，可选项[type]参数表示返回数据的格式，如html、xml、js、json、text等。
+	</p>
+	<h2>功能描述</h2>
+	<p>
+		将人员资料信息保存到一个XML格式的文档UserInfo.xml中，另外，新建一个页面，在页面中，单击“获取数据”按钮，通过全局函数$.get()打开XML格式的文档UserInfo.xml，并获取文档中的全部数据，显示在页面中。
+	</p>
+	<h2>实现代码</h2>
+	<p>JavaScript代码</p>
+	<pre>
+$(function(){
+    $("#Button1").click(function(){ //按钮单击事件
+        //打开文件，并通过回调函数处理获取的数据
+        $.get("UserInfo.xml", function(data){
+            $("#divTip").empty(); //先清空标记中的内容
+            var strHTML = ""; //初始化保存内容变量
+            $(data).find("User").each(function(){ //遍历获取的数据
+                var $strUser = $(this);
+                strHTML += "姓名：" + 
+                $strUser.find("name").text() + "&lt;br>";
+                strHTML += "性别：" +
+                $strUser.find("sex").text() + "&lt;br>";
+                strHTML += "邮箱：" +
+                $strUser.find("email").text() + "&lt;hr>";
+                })
+            $("#divTip").html(strHTML); //显示处理后的数据
+        })
+    })
+})</pre>
+	<p>UserInfo.xml代码</p>
+	<pre>
+&lt;?xml version="1.0" encoding="utf-8" ?>
+&lt;Info>
+  &lt;User id="1">
+    &lt;name>陶国荣&lt;/name>
+    &lt;sex>男&lt;/sex>
+    &lt;email>tao_guo_rong@163.com&lt;/email>
+  &lt;/User>
+
+  &lt;User id="2">
+    &lt;name>李建洲&lt;/name>
+    &lt;sex>女&lt;/sex>
+    &lt;email>xiaoli@163.com&lt;/email>
+  &lt;/User>
+&lt;/Info></pre>
+	<h2>代码实例</h2>
+	<div class="divFrame">
+		<div class="divTitle">
+			<input id="Button1" type="button" class="btn" value="获取数据" />
+		</div>
+		<div class="divContent">
+			<div id="divTip"></div>
+		</div>
+	</div>
+	<h2>说明</h2>
+	<p>
+		在示例的js代码中，先通过each()方法遍历文档中的User节点，然后在遍历的过程中使用find方法，查询该节点中的name、sex、email选项，并通过text()方法获取个选项的值，最后，将各值以叠加的形式保存到变量strHTML，并显示在页面中。
+	</p>
+</body>
+</html>
